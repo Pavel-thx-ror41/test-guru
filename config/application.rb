@@ -17,7 +17,8 @@ module TestGuru
     # in config/environments, which are processed later.
     #
     config.time_zone = "Moscow" # active_support/values/time_zone.rb
-    config.active_record.default_timezone = :local # https://learntutorials.net/ru/ruby-on-rails/topic/3367/изменение-часового-пояса-по-умолчанию
+    # https://learntutorials.net/ru/ruby-on-rails/topic/3367/изменение-часового-пояса-по-умолчанию
+    # config.active_record.default_timezone = :local
     # config.eager_load_paths << Rails.root.join("extras")
     #
     config.i18n.available_locales = [:ru]
