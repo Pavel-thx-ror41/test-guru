@@ -10,11 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_06_25_211005) do
+ActiveRecord::Schema.define(version: 2023_06_25_213006) do
 
   create_table "answers", force: :cascade do |t|
     t.integer "question_id", null: false
-    t.string "title", limit: 30
+    t.string "title", limit: 30, null: false
     t.boolean "correct"
     t.text "info", limit: 512
     t.datetime "created_at", precision: 6, null: false
@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 2023_06_25_211005) do
   end
 
   create_table "categories", force: :cascade do |t|
-    t.string "title", limit: 30
+    t.string "title", limit: 30, null: false
     t.text "info", limit: 512
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 2023_06_25_211005) do
 
   create_table "questions", force: :cascade do |t|
     t.integer "test_id", null: false
-    t.string "title", limit: 30
+    t.string "title", limit: 30, null: false
     t.text "info", limit: 512
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 2023_06_25_211005) do
     t.integer "user_id", null: false
     t.integer "category_id", null: false
     t.boolean "published"
-    t.string "title", limit: 30
+    t.string "title", limit: 30, null: false
     t.text "info", limit: 512
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -55,9 +55,9 @@ ActiveRecord::Schema.define(version: 2023_06_25_211005) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "email", limit: 30
-    t.string "name", limit: 30
-    t.string "password_digest"
+    t.string "email", limit: 30, null: false
+    t.string "name", limit: 30, null: false
+    t.string "password_digest", null: false
     t.string "password_reset_token"
     t.text "info", limit: 512
     t.datetime "created_at", precision: 6, null: false
