@@ -1,13 +1,16 @@
 class CreateAnswers < ActiveRecord::Migration[6.1]
   def change
     create_table :answers do |t|
-      t.references :question, null: false, foreign_key: true
-      t.string :title, limit: 30
-      t.boolean :correct
-      t.text :info, limit: 512
+      t.integer :question_id, null: false
+      t.boolean :correct, default: false, null: false
+      t.string :title, null: false
+      t.text :info
 
       t.timestamps
+
+      t.index [:question_id], name: :index_answers_on_question_id
+      t.index [:title], name: :index_answers_on_title, unique: true
     end
-    add_index :answers, :title, unique: true
+    add_foreign_key :answers, :questions
   end
 end
