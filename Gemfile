@@ -31,6 +31,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   # gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'faker'
   gem 'pry'
 end
 
@@ -60,3 +61,5 @@ gem 'i18n', '1.14.1'
 
 gem 'net-http'
 gem 'uri', '0.10.0'    # force the default version for ruby 2.7
+
+gem 'russian', '~> 0.6.0'
