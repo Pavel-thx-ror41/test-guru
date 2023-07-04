@@ -8,8 +8,7 @@ class Test < ApplicationRecord
     # отсортированный по убыванию массив названий Тестов с выбранной Категорией
     def titles_by_category_title_desc(category_title)
       joins(:category)
-        .where('categories.title': category_title)
-        .select('tests.title')
+        .where(categories: { title: category_title })
         .order('tests.title DESC')
         .pluck('tests.title')
     end
