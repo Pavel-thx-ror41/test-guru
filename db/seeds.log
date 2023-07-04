@@ -1,0 +1,102 @@
+SEED
+
+CATEGORIES
+  C: Компоновка
+  C: Контроллеры
+  C: Датчики
+
+USERS
+  U: anzhela_rusakova
+  U: leonid_merkushev
+  U: alla_zueva
+  U: vasilisa_fedotova
+  U: konstantin_rogov
+
+TESTS
+  T: Quality is not an act, it is a habit.
+  T: Only the educated are free.
+  T: Control thy passions lest they take vengence on thee.
+  T: Love is composed of a single soul inhabiting two bodies.
+
+QUESTIONS
+  for T: Quality is not an act, it is a habit.
+    Q: Parsing the driver won't do anything, we need to bypass the back-end agp array?
+    Q: We need to navigate the mobile THX pixel?
+  for T: Only the educated are free.
+    Q: You can't quantify the port without parsing the mobile SMS hard drive?
+    Q: Use the multi-byte JSON circuit, then you can generate the primary sensor?
+    Q: Use the optical ADP hard drive, then you can reboot the open-source protocol?
+  for T: Control thy passions lest they take vengence on thee.
+    Q: Use the neural XSS program, then you can override the multi-byte system?
+    Q: Use the virtual SDD monitor, then you can quantify the online capacitor?
+  for T: Love is composed of a single soul inhabiting two bodies.
+    Q: Transmitting the card won't do anything, we need to parse the mobile xss protocol?
+    Q: You can't calculate the alarm without synthesizing the redundant HDD driver?
+
+ANSWERS
+  for Q: Parsing the driver won't do anything, we need to bypass the back-end agp array?
+    A: Parsing the driver won't do anything, we need to bypass the back-end agp array!
+    A: We need to navigate the mobile THX pixel!
+    CORRECT: We need to navigate the mobile THX pixel!
+  for Q: We need to navigate the mobile THX pixel?
+    A: You can't quantify the port without parsing the mobile SMS hard drive!
+    A: Use the multi-byte JSON circuit, then you can generate the primary sensor!
+    CORRECT: You can't quantify the port without parsing the mobile SMS hard drive!
+  for Q: You can't quantify the port without parsing the mobile SMS hard drive?
+    A: Use the optical ADP hard drive, then you can reboot the open-source protocol!
+    A: Use the neural XSS program, then you can override the multi-byte system!
+    A: Use the virtual SDD monitor, then you can quantify the online capacitor!
+    CORRECT: Use the neural XSS program, then you can override the multi-byte system!
+  for Q: Use the multi-byte JSON circuit, then you can generate the primary sensor?
+    A: Transmitting the card won't do anything, we need to parse the mobile xss protocol!
+    A: You can't calculate the alarm without synthesizing the redundant HDD driver!
+    CORRECT: You can't calculate the alarm without synthesizing the redundant HDD driver!
+  for Q: Use the optical ADP hard drive, then you can reboot the open-source protocol?
+    A: Use the wireless XSS driver, then you can calculate the online bus!
+    A: We need to compress the bluetooth AI sensor!
+    A: You can't back up the bus without backing up the online PCI protocol!
+    CORRECT: Use the wireless XSS driver, then you can calculate the online bus!
+  for Q: Use the neural XSS program, then you can override the multi-byte system?
+    A: The JSON card is down, synthesize the primary feed so we can calculate the PCI system!
+    A: If we hack the feed, we can get to the COM matrix through the bluetooth TCP program!
+    A: The SMS monitor is down, connect the open-source driver so we can program the FTP interface!
+    CORRECT: The JSON card is down, synthesize the primary feed so we can calculate the PCI system!
+  for Q: Use the virtual SDD monitor, then you can quantify the online capacitor?
+    A: Connecting the system won't do anything, we need to bypass the back-end scsi firewall!
+    A: You can't back up the monitor without backing up the open-source JBOD port!
+    A: We need to connect the mobile SDD application!
+    CORRECT: Connecting the system won't do anything, we need to bypass the back-end scsi firewall!
+  for Q: Transmitting the card won't do anything, we need to parse the mobile xss protocol?
+    A: You can't program the interface without parsing the bluetooth PNG pixel!
+    A: If we back up the hard drive, we can get to the CSS program through the bluetooth SQL circuit!
+    A: We need to parse the bluetooth SMS program!
+    CORRECT: If we back up the hard drive, we can get to the CSS program through the bluetooth SQL circuit!
+  for Q: You can't calculate the alarm without synthesizing the redundant HDD driver?
+    A: Use the redundant XSS bandwidth, then you can bypass the solid state panel!
+    A: Use the auxiliary USB sensor, then you can index the bluetooth protocol!
+    CORRECT: Use the auxiliary USB sensor, then you can index the bluetooth protocol!
+
+PASSES
+  Pass for U: leonid_merkushev on T: Control thy passions lest they take vengence on thee.
+  Pass for U: leonid_merkushev on T: Only the educated are free.
+  Pass for U: vasilisa_fedotova on T: Love is composed of a single soul inhabiting two bodies.
+
+PASSES CHOICES
+  Pass for U: leonid_merkushev on T: Control thy passions lest they take vengence on thee.
+    Q: Use the neural XSS program, then you can override the multi-byte system?
+       CORRECT CHOICE: The JSON card is down, synthesize the primary feed so we can calculate the PCI system!
+    Q: Use the virtual SDD monitor, then you can quantify the online capacitor?
+       CORRECT CHOICE: Connecting the system won't do anything, we need to bypass the back-end scsi firewall!
+  Pass for U: leonid_merkushev on T: Only the educated are free.
+    Q: You can't quantify the port without parsing the mobile SMS hard drive?
+       WRONG CHOICE: Use the virtual SDD monitor, then you can quantify the online capacitor!
+    Q: Use the multi-byte JSON circuit, then you can generate the primary sensor?
+       CORRECT CHOICE: You can't calculate the alarm without synthesizing the redundant HDD driver!
+    Q: Use the optical ADP hard drive, then you can reboot the open-source protocol?
+       WRONG CHOICE: We need to compress the bluetooth AI sensor!
+  Pass for U: vasilisa_fedotova on T: Love is composed of a single soul inhabiting two bodies.
+    Q: Transmitting the card won't do anything, we need to parse the mobile xss protocol?
+       WRONG CHOICE: You can't program the interface without parsing the bluetooth PNG pixel!
+    Q: You can't calculate the alarm without synthesizing the redundant HDD driver?
+       CORRECT CHOICE: Use the auxiliary USB sensor, then you can index the bluetooth protocol!
+
