@@ -19,7 +19,7 @@ module TestGuru
     config.time_zone = "Moscow" # active_support/values/time_zone.rb
     # config.eager_load_paths << Rails.root.join("extras")
     #
-    config.i18n.available_locales = [:ru]
+    config.i18n.available_locales = [:en, :ru]
     config.i18n.default_locale = :ru
   end
 end

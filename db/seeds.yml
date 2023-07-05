@@ -1,0 +1,11 @@
+categories:
+  - architecture: {title: 'Компоновка'}
+  - controller: {title: 'Контроллеры'}
+  - sensors: {title: 'Датчики'}
+  - link: {title: 'Связь'}
+  - software: {title: 'Программное обеспечение'}
+  - firmware: {title: 'Прошивки'}
+  - interfaces: {title: 'Способы подключения'}
+  - protocols: {title: 'Протоколы и стандарты'}
+  - actuators: {title: 'Исполнительные механихзмы'}
+  - power: {title: 'Система питания'}

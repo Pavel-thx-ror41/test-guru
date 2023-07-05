@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_06_25_211005) do
+ActiveRecord::Schema.define(version: 2023_07_02_222007) do
 
   create_table "answers", force: :cascade do |t|
     t.integer "question_id", null: false
@@ -29,6 +29,28 @@ ActiveRecord::Schema.define(version: 2023_06_25_211005) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["title"], name: "index_categories_on_title", unique: true
+  end
+
+  create_table "choices", force: :cascade do |t|
+    t.integer "pass_id", null: false
+    t.integer "question_id", null: false
+    t.integer "answer_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["answer_id"], name: "index_choices_on_answer_id"
+    t.index ["pass_id", "question_id", "answer_id"], name: "index_choices_on_pass_id_and_question_id_and_answer_id", unique: true
+    t.index ["pass_id"], name: "index_choices_on_pass_id"
+    t.index ["question_id"], name: "index_choices_on_question_id"
+  end
+
+  create_table "passes", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "test_id", null: false
+    t.datetime "pass_start", precision: 6, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["test_id"], name: "index_passes_on_test_id"
+    t.index ["user_id"], name: "index_passes_on_user_id"
   end
 
   create_table "questions", force: :cascade do |t|
@@ -69,6 +91,11 @@ ActiveRecord::Schema.define(version: 2023_06_25_211005) do
   end
 
   add_foreign_key "answers", "questions"
+  add_foreign_key "choices", "answers"
+  add_foreign_key "choices", "passes"
+  add_foreign_key "choices", "questions"
+  add_foreign_key "passes", "tests"
+  add_foreign_key "passes", "users"
   add_foreign_key "questions", "tests"
   add_foreign_key "tests", "categories"
   add_foreign_key "tests", "users"
