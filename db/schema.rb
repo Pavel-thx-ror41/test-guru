@@ -14,9 +14,9 @@ ActiveRecord::Schema.define(version: 2023_07_02_222007) do
 
   create_table "answers", force: :cascade do |t|
     t.integer "question_id", null: false
-    t.string "title", limit: 30, null: false
-    t.boolean "correct", default: false
-    t.text "info", limit: 512
+    t.boolean "correct", default: false, null: false
+    t.string "title", null: false
+    t.text "info"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["question_id"], name: "index_answers_on_question_id"
@@ -24,8 +24,8 @@ ActiveRecord::Schema.define(version: 2023_07_02_222007) do
   end
 
   create_table "categories", force: :cascade do |t|
-    t.string "title", limit: 30, null: false
-    t.text "info", limit: 512
+    t.string "title", null: false
+    t.text "info"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["title"], name: "index_categories_on_title", unique: true
@@ -55,8 +55,8 @@ ActiveRecord::Schema.define(version: 2023_07_02_222007) do
 
   create_table "questions", force: :cascade do |t|
     t.integer "test_id", null: false
-    t.string "title", limit: 30, null: false
-    t.text "info", limit: 512
+    t.string "title", null: false
+    t.text "info"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["test_id"], name: "index_questions_on_test_id"
@@ -66,23 +66,23 @@ ActiveRecord::Schema.define(version: 2023_07_02_222007) do
   create_table "tests", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "category_id", null: false
-    t.boolean "published"
-    t.string "title", limit: 30, null: false
-    t.text "info", limit: 512
+    t.boolean "published", default: false
+    t.integer "level", default: 1, null: false
+    t.string "title", null: false
+    t.text "info"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "level", default: 1, null: false
     t.index ["category_id"], name: "index_tests_on_category_id"
     t.index ["title"], name: "index_tests_on_title", unique: true
     t.index ["user_id"], name: "index_tests_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "email", limit: 30, null: false
-    t.string "name", limit: 30, null: false
+    t.string "email", null: false
+    t.string "name", null: false
     t.string "password_digest", null: false
     t.string "password_reset_token"
-    t.text "info", limit: 512
+    t.text "info"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
