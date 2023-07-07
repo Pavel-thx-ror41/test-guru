@@ -4,6 +4,9 @@ class Test < ApplicationRecord
   has_many :questions
   has_many :passes
 
+  scope :by_level_easy, -> { where(level: 0..1) }
+  scope :by_level_medium, -> { where(level: 2..4) }
+  scope :by_level_difficult, -> { where(level: 5..) }
   scope :by_level, ->(level) { where(level: level) }
   scope :by_category_title_desc, lambda { |category_title|
     joins(:category).where(categories: { title: category_title }).order('tests.title DESC')
