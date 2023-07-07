@@ -7,6 +7,6 @@ class User < ApplicationRecord
 
   # список всех Тестов, которые проходит или проходил Пользователь на этом уровне
   def passed_tests_by_level(level)
-    passed_tests.where(level: level)
+    passed_tests.by_level(level)
   end
 end
