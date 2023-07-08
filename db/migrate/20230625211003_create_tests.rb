@@ -10,7 +10,7 @@ class CreateTests < ActiveRecord::Migration[6.1]
 
       t.timestamps
 
-      t.index [:title], name: :index_tests_on_title, unique: true
+      t.index [:title, :level], name: :index_tests_on_title_and_level, unique: true
     end
   end
 end

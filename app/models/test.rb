@@ -5,6 +5,10 @@ class Test < ApplicationRecord
   has_many :passes
 
   validates :user_id, :category_id, :level, :title, :info, presence: true
+  validates :published, inclusion: { in: [false, true] }
+  validates :level, numericality: { only_integer: true, greater_than_or_equal_to: 1, less_than_or_equal_to: 7}
+  validates :level, uniqueness: { scope: :title,
+                                  message: 'Может существовать только один Тест с данным названием и уровнем' }
 
   scope :by_level_easy, -> { where(level: 0..1) }
   scope :by_level_medium, -> { where(level: 2..4) }
