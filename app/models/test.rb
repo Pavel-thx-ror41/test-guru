@@ -4,6 +4,8 @@ class Test < ApplicationRecord
   has_many :questions
   has_many :passes
 
+  validates :user_id, :category_id, :level, :title, :info, presence: true
+
   scope :by_level_easy, -> { where(level: 0..1) }
   scope :by_level_medium, -> { where(level: 2..4) }
   scope :by_level_difficult, -> { where(level: 5..) }

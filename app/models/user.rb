@@ -5,6 +5,8 @@ class User < ApplicationRecord
   has_many :tests
   has_many :passed_tests, source: :test, through: :passes
 
+  validates :email, :name, :password_digest, :info, presence: true
+
   # список всех Тестов, которые проходит или проходил Пользователь на этом уровне
   def passed_tests_by_level(level)
     passed_tests.by_level(level)
