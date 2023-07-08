@@ -6,7 +6,8 @@ class CreateChoices < ActiveRecord::Migration[6.1]
       t.references :answer, null: false, foreign_key: true
 
       t.timestamps
+
+      t.index ["pass_id", "question_id", "answer_id"], name: "index_choices_on_pass_id_and_question_id_and_answer_id", unique: true
     end
-    add_index :choices, %i[pass_id question_id answer_id], unique: true
   end
 end

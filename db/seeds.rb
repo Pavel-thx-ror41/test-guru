@@ -85,7 +85,7 @@ Question.all.each do |question|
     puts "    A: #{answer.title}"
   end
   correct_answer = Answer.where(question_id: question.id).sample
-  correct_answer.update!(correct: true)
+  correct_answer.update!(correct: true, title: correct_answer.title.insert(0, '+ '))
   puts "    CORRECT: #{correct_answer.title}"
 end
 puts
