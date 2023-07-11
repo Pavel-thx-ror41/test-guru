@@ -10,18 +10,16 @@ class Test < ApplicationRecord
   validates :level, uniqueness: { scope: :title,
                                   message: 'Может существовать только один Тест с данным названием и уровнем' }
 
-  scope :by_level_easy, -> { where(level: 0..1) }
-  scope :by_level_medium, -> { where(level: 2..4) }
-  scope :by_level_difficult, -> { where(level: 5..) }
   scope :by_level, ->(level) { where(level: level) }
-  scope :by_category_title_desc, lambda { |category_title|
-    joins(:category).where(categories: { title: category_title }).order('tests.title DESC')
-  }
+  scope :by_level_easy, -> { by_level(0..1) }
+  scope :by_level_medium, -> { by_level(2..4) }
+  scope :by_level_difficult, -> { by_level(5..) }
+  scope :by_category_title, ->(category_title) { joins(:category).where(categories: { title: category_title }) }
 
   class << self
     # отсортированный по убыванию массив названий Тестов с выбранной Категорией
     def titles_by_category_title_desc(category_title)
-      by_category_title_desc(category_title).pluck(:title)
+      by_category_title(category_title).order('tests.title DESC').pluck('tests.title')
     end
   end
 end
