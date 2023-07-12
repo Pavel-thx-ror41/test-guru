@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_07_02_222007) do
+ActiveRecord::Schema.define(version: 2023_07_10_222010) do
 
   create_table "answers", force: :cascade do |t|
     t.integer "question_id", null: false
     t.boolean "correct", default: false, null: false
     t.string "title", null: false
-    t.text "info"
+    t.text "info", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["question_id"], name: "index_answers_on_question_id"
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 2023_07_02_222007) do
 
   create_table "categories", force: :cascade do |t|
     t.string "title", null: false
-    t.text "info"
+    t.text "info", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["title"], name: "index_categories_on_title", unique: true
@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(version: 2023_07_02_222007) do
   create_table "questions", force: :cascade do |t|
     t.integer "test_id", null: false
     t.string "title", null: false
-    t.text "info"
+    t.text "info", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["test_id"], name: "index_questions_on_test_id"
@@ -69,11 +69,11 @@ ActiveRecord::Schema.define(version: 2023_07_02_222007) do
     t.boolean "published", default: false, null: false
     t.integer "level", default: 1, null: false
     t.string "title", null: false
-    t.text "info"
+    t.text "info", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["category_id"], name: "index_tests_on_category_id"
-    t.index ["title"], name: "index_tests_on_title", unique: true
+    t.index ["title", "level"], name: "index_tests_on_title_and_level", unique: true
     t.index ["user_id"], name: "index_tests_on_user_id"
   end
 
@@ -82,7 +82,7 @@ ActiveRecord::Schema.define(version: 2023_07_02_222007) do
     t.string "name", null: false
     t.string "password_digest", null: false
     t.string "password_reset_token"
-    t.text "info"
+    t.text "info", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
