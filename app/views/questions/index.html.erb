@@ -19,9 +19,9 @@
         <td><%= question.title %></td>
         <td><%= question.info %></td>
         <td>
-          <a href="/tests/<%= question.test_id %>/questions/<%= question.id %>">Show</a>
+          <a href="/questions/<%= question.id %>?test_id=<%= params[:test_id] %>">Show</a>
         </td>
-        <td><form method="post" action="/tests/<%= question.test_id %>/questions/<%= question.id %>">
+        <td><form method="post" action="/questions/<%= question.id %>?test_id=<%= params[:test_id] %>">
           <input type="hidden" name="_method" value="delete">
           <input type="submit" value="Destroy">
           <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">

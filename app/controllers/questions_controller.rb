@@ -1,64 +1,58 @@
 class QuestionsController < ApplicationController
+  before_action :set_test, only: %i[index new create]
   before_action :set_question, only: %i[show edit update destroy]
 
   def index
-    @questions = Test.find(params[:test_id]).questions
-  rescue ActiveRecord::RecordNotFound
-    flash[:notice] = 'Test not found'
-    @questions = nil
-    render action: 'index'
+    @questions = @test.questions
   end
 
   def show; end
 
   def new
-    @question = Question.new
+    @question = @test.questions.new
   end
 
   def create
-    @question = Question.create(question_params)
+    @question = @test.questions.new(question_params)
 
-    respond_to do |format|
-      format.html do
-        if @question.save
-          flash[:notice] = 'Question created'
-          redirect_to action: 'index'
-        else
-          flash[:notice] = @question.errors.map { |e| [e.attribute, e.message].join(' ') }.to_sentence
-          render :new, status: :unprocessable_entity
-        end
-      end
+    if @question.save
+      flash[:notice] = 'Question created'
+      redirect_to action: 'index'
+    else
+      flash[:notice] = @question.errors.map { |e| [e.attribute, e.message].join(' ') }.to_sentence
+      render :new, status: :unprocessable_entity
     end
   end
 
   def destroy
     question = @question.destroy
 
-    respond_to do |format|
-      format.html do
-        flash[:notice] = if question.frozen? && !question.persisted?
-                           'Question was successfully destroyed.'
-                         else
-                           'Question was NOT destroyed.'
-                         end
-        redirect_to action: 'index'
-      end
-    end
+    flash[:notice] = if question.frozen? && !question.persisted?
+                       'Question was successfully destroyed.'
+                     else
+                       'Question was NOT destroyed.'
+                     end
+    redirect_to action: 'index', test_id: question.test_id
   end
 
   private
 
   def question_params
-    test = Test.find_by(id: params[:test_id])
-    return unless test
+    params.require(:question).permit(:title, :info)
+  end
 
-    params.require(:question).permit(:title, :info).merge(test_id: test.id)
+  def set_test
+    @test = Test.find(params[:test_id])
+  rescue ActiveRecord::RecordNotFound
+    flash[:notice] = 'Test not found'
+    @questions = nil
+    render action: 'index'
   end
 
   def set_question
     @question = Question.find(params[:id])
   rescue ActiveRecord::RecordNotFound
     flash[:notice] = 'Question not found'
-    redirect_to action: 'index'
+    redirect_to action: 'index', test_id: params[:test_id]
   end
 end
