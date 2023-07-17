@@ -1,1 +1,1 @@
-      <p id="notice"><%= to_ul(notice[:errors]) if notice[:errors] %></p>
+      <p id="notice"><%= (notice.is_a?(Hash) && notice[:errors]) ? to_ul(notice[:errors]) : notice  %></p>

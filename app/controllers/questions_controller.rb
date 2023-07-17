@@ -28,7 +28,7 @@ class QuestionsController < ApplicationController
 
   def update
     if @question.update(question_params)
-      flash[:notice] = 'Question created'
+      flash[:notice] = 'Question updated'
       redirect_to @question # , notice: 'Question updated'
     else
       flash[:notice] = { errors: entity_errors_list(@question) }
