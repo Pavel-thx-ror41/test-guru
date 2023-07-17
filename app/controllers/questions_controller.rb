@@ -21,7 +21,7 @@ class QuestionsController < ApplicationController
       flash[:notice] = 'Question created'
       redirect_to action: 'index'
     else
-      flash[:notice] = @question.errors.map { |e| [e.attribute, e.message].join(' ') }.to_sentence
+      flash[:notice] = { errors: entity_errors_list(@question) }
       render :new, status: :unprocessable_entity
     end
   end
@@ -31,7 +31,7 @@ class QuestionsController < ApplicationController
       flash[:notice] = 'Question created'
       redirect_to @question # , notice: 'Question updated'
     else
-      flash[:notice] = @question.errors.map { |e| [e.attribute, e.message].join(' ') }.to_sentence
+      flash[:notice] = { errors: entity_errors_list(@question) }
       render :edit, status: :unprocessable_entity
     end
   end
