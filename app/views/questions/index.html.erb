@@ -1,36 +1,32 @@
-<h2 id="notice"><%= notice %></h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Test_id</th>
+            <th>Title</th>
+            <th>Info</th>
+            <th colspan="4"></th>
+          </tr>
+        </thead>
 
-<h1>Questions</h1>
+        <tbody>
+          <% @questions.each do |question| %>
+            <tr>
+              <td><%= question.test_id %></td>
+              <td><%= question.title %></td>
+              <td><%= question.info %></td>
 
-<table>
-  <thead>
-    <tr>
-      <th>Test_id</th>
-      <th>Title</th>
-      <th>Info</th>
-      <th colspan="4"></th>
-    </tr>
-  </thead>
+              <td><%= link_to 'Show', question_path(question.id, test_id: params[:test_id]) %></td>
+              <td><%= link_to 'Edit', edit_question_path(question.id, test_id: params[:test_id]) %></td>
+              <td><%= button_to 'Destroy', question_path(question.id),
+                                           method: :delete, data: { confirm: 'Are you sure?' } %></td>
 
-  <tbody>
-    <% @questions.each do |question| %>
-      <tr>
-        <td><%= question.test_id %></td>
-        <td><%= question.title %></td>
-        <td><%= question.info %></td>
+            </tr>
+          <% end if @questions %>
+        </tbody>
+      </table>
 
-        <td><%= link_to 'Show', question_path(question.id, test_id: params[:test_id]) %></td>
-        <td><%= link_to 'Edit', edit_question_path(question.id, test_id: params[:test_id]) %></td>
-        <td><%= button_to 'Destroy', question_path(question.id),
-                                     method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <br>
 
-      </tr>
-    <% end if @questions %>
-  </tbody>
-</table>
+      <%= link_to 'New Question', new_test_question_path(params[:test_id]) %>
 
-<br>
-
-<%= link_to 'New Question', new_test_question_path(params[:test_id]) %>
-
-<br>&nbsp<br>&nbsp<br>&nbsp<br>
+      <br>&nbsp<br>&nbsp<br>&nbsp<br>
