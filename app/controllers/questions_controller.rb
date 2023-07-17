@@ -12,6 +12,8 @@ class QuestionsController < ApplicationController
     @question = @test.questions.new
   end
 
+  def edit; end
+
   def create
     @question = @test.questions.new(question_params)
 
@@ -21,6 +23,16 @@ class QuestionsController < ApplicationController
     else
       flash[:notice] = @question.errors.map { |e| [e.attribute, e.message].join(' ') }.to_sentence
       render :new, status: :unprocessable_entity
+    end
+  end
+
+  def update
+    if @question.update(question_params)
+      flash[:notice] = 'Question created'
+      redirect_to @question # , notice: 'Question updated'
+    else
+      flash[:notice] = @question.errors.map { |e| [e.attribute, e.message].join(' ') }.to_sentence
+      render :edit, status: :unprocessable_entity
     end
   end
 

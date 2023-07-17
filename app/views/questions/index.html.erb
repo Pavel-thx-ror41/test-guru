@@ -18,14 +18,12 @@
         <td><%= question.test_id %></td>
         <td><%= question.title %></td>
         <td><%= question.info %></td>
-        <td>
-          <a href="/questions/<%= question.id %>?test_id=<%= params[:test_id] %>">Show</a>
-        </td>
-        <td><form method="post" action="/questions/<%= question.id %>?test_id=<%= params[:test_id] %>">
-          <input type="hidden" name="_method" value="delete">
-          <input type="submit" value="Destroy">
-          <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-        </form></td>
+
+        <td><%= link_to 'Show', question_path(question.id, test_id: params[:test_id]) %></td>
+        <td><%= link_to 'Edit', edit_question_path(question.id, test_id: params[:test_id]) %></td>
+        <td><%= button_to 'Destroy', question_path(question.id),
+                                     method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
       </tr>
     <% end if @questions %>
   </tbody>
