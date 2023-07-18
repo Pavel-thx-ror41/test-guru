@@ -1,9 +1,12 @@
       <p>
         <label for="question-title">Title:</label>
-        <h4><%= @question.title %></h4>
+        <%= @question.title %>
       </p>
 
       <p>
         <label for="question-info">Info:</label>
         <%= @question.info %>
       </p>
+
+      <%= link_to 'Edit', edit_question_path(@question), class: :button %>
+      <%= link_to 'Back', test_questions_path(test_id: @question.test_id), class: :button %>
