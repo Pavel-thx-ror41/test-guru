@@ -21,7 +21,7 @@ class QuestionsController < ApplicationController
       flash[:notice] = 'Question created'
       redirect_to action: 'index'
     else
-      flash[:notice] = { errors: entity_errors_list(@question) }
+      flash.now[:notice] = { errors: entity_errors_list(@question) }
       render :new, status: :unprocessable_entity
     end
   end
@@ -31,7 +31,7 @@ class QuestionsController < ApplicationController
       flash[:notice] = 'Question updated'
       redirect_to @question # , notice: 'Question updated'
     else
-      flash[:notice] = { errors: entity_errors_list(@question) }
+      flash.now[:notice] = { errors: entity_errors_list(@question) }
       render :edit, status: :unprocessable_entity
     end
   end
@@ -56,7 +56,7 @@ class QuestionsController < ApplicationController
   def set_test
     @test = Test.find(params[:test_id])
   rescue ActiveRecord::RecordNotFound
-    flash[:notice] = 'Test not found'
+    flash.now[:notice] = 'Test not found'
     @questions = nil
     render action: 'index'
   end
