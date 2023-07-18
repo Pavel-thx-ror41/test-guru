@@ -21,7 +21,6 @@ module ApplicationHelper
     when 'edit'
       "#{action_name.capitalize} #{controller_name.singularize.capitalize}: '#{title}'"
     when 'show'
-      controller_name.singularize.capitalize
       "#{controller_name.singularize.capitalize}: '#{title}'"
     else
       'Welcome'
