@@ -9,16 +9,7 @@
         </thead>
 
         <tbody>
-          <% @questions.each do |question| %>
-            <tr>
-              <td rowspan="3"><%= question.test_id %></td>
-              <td rowspan="3"><%= question.title %></td>
-              <td rowspan="3"><%= question.info %></td>
-              <td><%= link_to 'Show', question_path(question.id, test_id: params[:test_id]), class: :button %></td>
-            </tr>
-            <tr><td><%= link_to 'Edit', edit_question_path(question.id, test_id: params[:test_id]), class: :button %></td></tr>
-            <tr><td><%= button_to 'Destroy', question_path(question.id), class: :button, method: :delete, data: { confirm: 'Are you sure?' } %></td></tr>
-            <% end if @questions %>
+          <%= render @questions %>
           <tr>
             <td colspan="4">Total: <%= @questions.count %> <%= controller_name.singularize.pluralize(@questions.count) %></td>
           </tr>
