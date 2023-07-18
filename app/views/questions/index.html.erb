@@ -9,10 +9,16 @@
         </thead>
 
         <tbody>
+          <% if @questions %>
           <%= render @questions %>
           <tr>
             <td colspan="4">Total: <%= @questions.count %> <%= controller_name.singularize.pluralize(@questions.count) %></td>
           </tr>
+          <% else %>
+          <tr>
+            <td colspan="4">Total: 0 Questions</td>
+          </tr>
+          <% end %>
         </tbody>
       </table>
 
