@@ -1,0 +1,13 @@
+      <%= form_with model: [@test, @question], local: true do |form| %>
+        <div>
+          <%= form.label :title %><br>
+          <%= form.text_field :title %>
+        </div>
+        <div>
+          <%= form.label :info %><br>
+          <%= form.text_area :info %>
+        </div>
+        <div>
+          <%= form.submit %>
+        </div>
+      <% end %>
