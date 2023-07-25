@@ -1,0 +1,17 @@
+      <p>
+        <strong>User:</strong>
+        <%= @test.user_id %>
+      </p>
+
+      <p>
+        <strong>Title:</strong>
+        <%= @test.title %>
+      </p>
+
+      <p>
+        <strong>Info:</strong>
+        <%= @test.info %>
+      </p>
+
+      <%= link_to 'Edit', edit_test_path(@test), class: :button %>
+      <%= link_to 'Back', tests_path, class: :button %>

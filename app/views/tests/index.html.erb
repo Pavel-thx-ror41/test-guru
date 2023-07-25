@@ -1,0 +1,25 @@
+      <table>
+        <thead>
+          <tr>
+            <th>User_id</th>
+            <th>Category_id</th>
+            <th>Published</th>
+            <th>Level</th>
+            <th>Questions</th>
+            <th>Title</th>
+            <th>Info</th>
+            <th></th>
+          </tr>
+        </thead>
+
+        <tbody>
+<%= render @tests %>
+          <tr>
+            <td colspan="8">Total: <%= @tests.count %> <%= controller_name.singularize.pluralize(@tests.count) %></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <br>
+
+      <%= link_to 'New Test', new_test_path, class: :button %>
