@@ -31,7 +31,7 @@ class TestsController < ApplicationController
       redirect_to action: 'index'
     else
       flash.now[:notice] = { errors: entity_errors_list(@test) }
-      render :new, status: :unprocessable_entity
+      render :edit, status: :unprocessable_entity
     end
   end
 
