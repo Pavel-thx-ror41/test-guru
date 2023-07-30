@@ -27,7 +27,7 @@ class TestsController < ApplicationController
 
   def update
     if @test.update(test_params)
-      flash[:notice] = 'Test created'
+      flash[:notice] = 'Test updated'
       redirect_to action: 'index'
     else
       flash.now[:notice] = { errors: entity_errors_list(@test) }
