@@ -1,0 +1,7 @@
+
+          <li>
+            <mark><%= link_to question.title, edit_question_path(question.id, test_id: params[:test_id]) %></mark><br>
+            <i><small><%= question.info %></small></i><br>
+            <%= button_to 'X', question_path(question.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+            <br>
+          </li>

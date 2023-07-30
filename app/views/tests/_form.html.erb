@@ -30,3 +30,13 @@
         </div>
       <% end %>
 
+      <% if @test.id %>
+      <hr>
+      <div>
+        <strong>Questions:</strong> <%= link_to('+', new_test_question_path(@test), class: :button)%><br>
+        <ul>
+            <%= render(partial: 'tests/question_edit', collection: @test.questions, as: :question) || 'No questions' %>
+        </ul>
+      </div>
+      <% end %>
+

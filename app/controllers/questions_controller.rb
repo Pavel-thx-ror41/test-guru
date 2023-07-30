@@ -1,12 +1,12 @@
 class QuestionsController < ApplicationController
-  before_action :set_test, only: %i[index new create]
-  before_action :set_question, only: %i[show edit update destroy]
+  before_action :set_test, only: %i[new create] # index
+  before_action :set_question, only: %i[edit update destroy] # show
 
-  def index
-    @questions = @test.questions
-  end
+  # def index
+  #   @questions = @test.questions
+  # end
 
-  def show; end
+  # def show; end
 
   def new
     @question = @test.questions.new
@@ -19,7 +19,7 @@ class QuestionsController < ApplicationController
 
     if @question.save
       flash[:notice] = 'Question created'
-      redirect_to action: 'index'
+      redirect_to edit_test_path(@test)
     else
       flash.now[:notice] = { errors: entity_errors_list(@question) }
       render :new, status: :unprocessable_entity
@@ -29,7 +29,7 @@ class QuestionsController < ApplicationController
   def update
     if @question.update(question_params)
       flash[:notice] = 'Question updated'
-      redirect_to @question # , notice: 'Question updated'
+      redirect_to edit_test_path(@question.test)
     else
       flash.now[:notice] = { errors: entity_errors_list(@question) }
       render :edit, status: :unprocessable_entity
@@ -44,7 +44,7 @@ class QuestionsController < ApplicationController
                      else
                        'Question was NOT destroyed.'
                      end
-    redirect_to action: 'index', test_id: question.test_id
+    redirect_to edit_test_path(@question.test)
   end
 
   private
@@ -58,13 +58,13 @@ class QuestionsController < ApplicationController
   rescue ActiveRecord::RecordNotFound
     flash.now[:notice] = 'Test not found'
     @questions = nil
-    render action: 'index'
+    redirect_to tests_path
   end
 
   def set_question
     @question = Question.find(params[:id])
   rescue ActiveRecord::RecordNotFound
     flash[:notice] = 'Question not found'
-    redirect_to action: 'index', test_id: params[:test_id]
+    redirect_to tests_path
   end
 end
