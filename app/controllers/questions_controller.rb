@@ -1,12 +1,6 @@
 class QuestionsController < ApplicationController
-  before_action :set_test, only: %i[new create] # index
-  before_action :set_question, only: %i[edit update destroy] # show
-
-  # def index
-  #   @questions = @test.questions
-  # end
-
-  # def show; end
+  before_action :set_test, only: %i[new create]
+  before_action :set_question, only: %i[edit update destroy]
 
   def new
     @question = @test.questions.new
