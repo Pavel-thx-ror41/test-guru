@@ -18,7 +18,7 @@ class TestsController < ApplicationController
 
     if @test.save
       flash[:notice] = 'Test created'
-      redirect_to action: 'index'
+      redirect_to tests_path
     else
       flash.now[:notice] = { errors: entity_errors_list(@test) }
       render :new, status: :unprocessable_entity
@@ -28,7 +28,7 @@ class TestsController < ApplicationController
   def update
     if @test.update(test_params)
       flash[:notice] = 'Test updated'
-      redirect_to action: 'index'
+      redirect_to tests_path
     else
       flash.now[:notice] = { errors: entity_errors_list(@test) }
       render :edit, status: :unprocessable_entity
@@ -43,7 +43,7 @@ class TestsController < ApplicationController
                      else
                        'Test was NOT destroyed.'
                      end
-    redirect_to action: 'index'
+    redirect_to tests_path
   end
 
   private
@@ -56,6 +56,6 @@ class TestsController < ApplicationController
     @test = Test.find(params[:id])
   rescue ActiveRecord::RecordNotFound
     flash[:notice] = 'Test not found'
-    redirect_to action: 'index'
+    redirect_to tests_path
   end
 end
