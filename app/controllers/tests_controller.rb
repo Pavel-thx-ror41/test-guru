@@ -14,8 +14,7 @@ class TestsController < ApplicationController
   def edit; end
 
   def create
-    @test = Test.new(test_params)
-    @test.author = current_user
+    @test = User.first.tests.new(test_params)
 
     if @test.save
       flash[:notice] = 'Test created'
