@@ -1,0 +1,26 @@
+<p>
+  <strong>User:</strong>
+  <%= @test.author.name %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @test.title %>
+</p>
+
+<p>
+  <strong>Info:</strong>
+  <%= @test.info %>
+</p>
+
+<hr>
+<div>
+  <strong>Questions:</strong>
+  <ul>
+    <%= render(partial: 'tests/question_show', collection: @test.questions, as: :question) || 'No questions' %>
+  </ul>
+</div>
+
+<hr>
+<%= link_to 'Edit', edit_test_path(@test), class: :button %>
+<%= link_to 'Back', tests_path, class: :button %>

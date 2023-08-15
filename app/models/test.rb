@@ -1,12 +1,12 @@
 class Test < ApplicationRecord
-  belongs_to :user
+  belongs_to :author, class_name: 'User', foreign_key: 'user_id'
   belongs_to :category
-  has_many :questions
+  has_many :questions, dependent: :destroy
   has_many :passes
 
   validates :user_id, :category_id, :level, :title, :info, presence: true
   validates :published, inclusion: { in: [false, true] }
-  validates :level, numericality: { only_integer: true, greater_than_or_equal_to: 1, less_than_or_equal_to: 7}
+  validates :level, numericality: { only_integer: true, greater_than_or_equal_to: 1, less_than_or_equal_to: 7 }
   validates :level, uniqueness: { scope: :title,
                                   message: 'Может существовать только один Тест с данным названием и уровнем' }
 

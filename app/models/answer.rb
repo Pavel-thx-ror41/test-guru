@@ -1,5 +1,6 @@
 class Answer < ApplicationRecord
   belongs_to :question
+  has_many :choices, dependent: :destroy
 
   validates :question_id, :title, :info, presence: true
   validates :correct, inclusion: { in: [false, true] }

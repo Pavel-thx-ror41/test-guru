@@ -1,26 +1,32 @@
 class QuestionsController < ApplicationController
-  before_action :set_test, only: %i[index new create]
-  before_action :set_question, only: %i[show edit update destroy]
-
-  def index
-    @questions = @test.questions
-  end
-
-  def show; end
+  before_action :set_test, only: %i[new create]
+  before_action :set_question, only: %i[edit update destroy]
 
   def new
     @question = @test.questions.new
   end
+
+  def edit; end
 
   def create
     @question = @test.questions.new(question_params)
 
     if @question.save
       flash[:notice] = 'Question created'
-      redirect_to action: 'index'
+      redirect_to edit_test_path(@test)
     else
-      flash[:notice] = @question.errors.map { |e| [e.attribute, e.message].join(' ') }.to_sentence
+      flash.now[:notice] = { errors: entity_errors_list(@question) }
       render :new, status: :unprocessable_entity
+    end
+  end
+
+  def update
+    if @question.update(question_params)
+      flash[:notice] = 'Question updated'
+      redirect_to edit_test_path(@question.test)
+    else
+      flash.now[:notice] = { errors: entity_errors_list(@question) }
+      render :edit, status: :unprocessable_entity
     end
   end
 
@@ -32,7 +38,7 @@ class QuestionsController < ApplicationController
                      else
                        'Question was NOT destroyed.'
                      end
-    redirect_to action: 'index', test_id: question.test_id
+    redirect_to edit_test_path(@question.test)
   end
 
   private
@@ -44,15 +50,15 @@ class QuestionsController < ApplicationController
   def set_test
     @test = Test.find(params[:test_id])
   rescue ActiveRecord::RecordNotFound
-    flash[:notice] = 'Test not found'
+    flash.now[:notice] = 'Test not found'
     @questions = nil
-    render action: 'index'
+    redirect_to tests_path
   end
 
   def set_question
     @question = Question.find(params[:id])
   rescue ActiveRecord::RecordNotFound
     flash[:notice] = 'Question not found'
-    redirect_to action: 'index', test_id: params[:test_id]
+    redirect_to tests_path
   end
 end
