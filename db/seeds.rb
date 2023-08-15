@@ -78,16 +78,15 @@ srand(RANDOM_SEED)
 Question.all.each do |question|
   puts "  for Q: #{question.title}"
   (2..3).to_a.sample.times do
+    correct = Faker::Boolean.boolean
+    title = Faker::Hacker.say_something_smart.sub('!', '.').sub('?', '.')
     answer = Answer.create!(
       question_id: question.id,
-      correct: false,
-      title: Faker::Hacker.say_something_smart,
+      correct: correct,
+      title: correct ? "+ #{title}" : "- #{title}",
       info: Faker::Lorem.paragraph_by_chars(number: 128)
     )
     puts "    A: #{answer.title}"
   end
-  correct_answer = Answer.where(question_id: question.id).sample
-  correct_answer.update!(correct: true, title: correct_answer.title.insert(0, '+ '))
-  puts "    CORRECT: #{correct_answer.title}"
 end
 puts
