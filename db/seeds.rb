@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# bin/rails db:drop db:create db:migrate db:seed
+
 puts "\nSEED"
 Faker::Config.locale = :ru
 I18n.reload! # https://github.com/faker-ruby/faker/issues/285#issuecomment-65909778
@@ -87,32 +89,5 @@ Question.all.each do |question|
   correct_answer = Answer.where(question_id: question.id).sample
   correct_answer.update!(correct: true, title: correct_answer.title.insert(0, '+ '))
   puts "    CORRECT: #{correct_answer.title}"
-end
-puts
-
-
-puts 'PASSES'
-Faker::Config.random = Random.new(RANDOM_SEED)
-srand(RANDOM_SEED)
-3.times do
-  pass = Pass.create!(
-    user_id: User.ids.sample,
-    test_id: Test.ids.sample,
-    pass_start: Faker::Time.between(from: 30.days.ago, to: Date.today)
-  )
-  puts "  Pass for U: #{pass.user.name} on T: #{pass.test.title}"
-end
-puts
-
-
-puts 'PASSES CHOICES'
-srand(RANDOM_SEED)
-Pass.all.each do |pass|
-  puts "  Pass for U: #{pass.user.name} on T: #{pass.test.title}"
-  pass.test.questions.each do |question|
-    choice = Choice.create!(pass_id: pass.id, question_id: question.id, answer_id: question.answers.ids.sample)
-    puts "    Q: #{choice.question.title}"
-    puts "       #{choice.answer.correct ? 'CORRECT' : 'WRONG'} CHOICE: #{choice.answer.title}"
-  end
 end
 puts
