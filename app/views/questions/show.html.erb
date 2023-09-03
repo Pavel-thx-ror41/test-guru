@@ -13,7 +13,6 @@
 <div>
   <strong>Answers:</strong>
   <ol>
-     <%#= render(partial: 'questions/answer_show', collection: @question.answers, as: :answer) || 'No answers' %>
     <%= render @question.answers %>
   </ol>
 </div>

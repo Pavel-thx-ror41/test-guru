@@ -10,6 +10,6 @@ class Answer < ApplicationRecord
   private
 
   def only_4_answers_for_one_test
-    errors.add(:base, "У одного Вопроса может быть до 4-х ответов") if question.answers.count >= 4
+    errors.add(:base, "Ответов, у одного Вопроса может быть до 4-х") if question.answers.count >= 4
   end
 end
