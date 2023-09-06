@@ -3,6 +3,8 @@ class Test < ApplicationRecord
   belongs_to :category
   has_many :questions, dependent: :destroy
   # has_many :passes
+  has_many :test_passages, dependent: :destroy
+  has_many :users, through: :test_passages
 
   validates :user_id, :category_id, :level, :title, :info, presence: true
   validates :published, inclusion: { in: [false, true] }
