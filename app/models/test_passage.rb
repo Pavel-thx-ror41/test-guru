@@ -5,8 +5,7 @@ class TestPassage < ApplicationRecord
   belongs_to :test
   belongs_to :current_question, class_name: 'Question', optional: true
 
-  before_create :before_create_set_current_question_first
-  before_update :before_update_set_current_question_next
+  before_save :set_current_question
 
   def completed?
     current_question.nil?
@@ -27,12 +26,12 @@ class TestPassage < ApplicationRecord
 
   private
 
-  def before_create_set_current_question_first
-    self.current_question = self.test.questions.first if test.present?
-  end
-
-  def before_update_set_current_question_next
-    self.current_question = next_question
+  def set_current_question
+    self.current_question = if current_question.nil?
+                              self.test.questions.order(:id).first
+                            else
+                              next_question
+                            end
   end
 
   def correct_answer?(answer_ids)
