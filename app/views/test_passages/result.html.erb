@@ -1,1 +1,6 @@
-<h1>Test '<%= @test_passage.test.title %>' was completed</h1>
+<div class='<%= passage_questions_correct_answers_count_status %>'>
+  <h1>Test '<%= @test_passage.test.title %>' was <%= passage_questions_correct_answers_count_status %></h1>
+
+  <%= passage_questions_correct %> correct answers from <%= passage_questions_total %>
+  (<%= passage_questions_correct_percentage %>%)
+</div>
