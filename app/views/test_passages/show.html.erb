@@ -15,6 +15,6 @@
   <p>
   (Question: <%= @test_passage.test.questions.order(:id).ids.find_index(@test_passage.current_question.id)+1 %>
   from
-  <%= passage_questions_total %>)
+  <%= @test_passage.test.questions.count %>)
   </p>
 <% end %>

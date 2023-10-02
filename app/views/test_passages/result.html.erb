@@ -1,6 +1,6 @@
-<div class='<%= passage_questions_correct_answers_count_status %>'>
-  <h1>Test '<%= @test_passage.test.title %>' was <%= passage_questions_correct_answers_count_status %></h1>
+<div class='<%= test_passage_status %>'>
+  <h1>Test '<%= @test_passage.test.title %>' was <%= test_passage_status %></h1>
 
-  <%= passage_questions_correct %> correct answers from <%= passage_questions_total %>
-  (<%= passage_questions_correct_percentage %>%)
+  <%= @test_passage.correct_questions %> correct answers from <%= @test_passage.test.questions.count %>
+  (<%= @test_passage.correct_percentage %>%)
 </div>
