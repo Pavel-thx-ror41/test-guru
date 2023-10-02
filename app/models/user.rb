@@ -1,10 +1,8 @@
 class User < ApplicationRecord
   has_secure_token :password_reset_token
   has_secure_password
-  # has_many :passes
   has_many :test_passages
   has_many :tests, through: :test_passages
-  # has_many :passed_tests, source: :test, through: :passes
 
   validates :email, :name, :password_digest, :info, presence: true
 
