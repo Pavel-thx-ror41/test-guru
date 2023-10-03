@@ -1,0 +1,22 @@
+<p>
+  <strong>for Question:</strong>
+  <%= @answer.question.title %>
+</p>
+
+<p>
+  <strong>Correct:</strong>
+  <%= @answer.correct %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @answer.title %>
+</p>
+
+<p>
+  <strong>Info:</strong>
+  <%= @answer.info %>
+</p>
+
+<%= link_to 'Edit', edit_answer_path(@answer) %> |
+<%= link_to 'Back to Question', @answer.question %>

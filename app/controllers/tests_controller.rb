@@ -1,5 +1,6 @@
 class TestsController < ApplicationController
-  before_action :set_test, only: %i[show edit update destroy]
+  before_action :set_test, only: %i[show edit update destroy start]
+  before_action :set_user, only: :start
 
   def index
     @tests = Test.all
@@ -14,7 +15,8 @@ class TestsController < ApplicationController
   def edit; end
 
   def create
-    @test = User.first.tests.new(test_params)
+    @test = Test.new(test_params)
+    @test.user_id = User.first.id
 
     if @test.save
       flash[:notice] = 'Test created'
@@ -46,6 +48,11 @@ class TestsController < ApplicationController
     redirect_to tests_path
   end
 
+  def start
+    @user.tests.push(@test)
+    redirect_to @user.test_passage(@test)
+  end
+
   private
 
   def test_params
@@ -57,5 +64,9 @@ class TestsController < ApplicationController
   rescue ActiveRecord::RecordNotFound
     flash[:notice] = 'Test not found'
     redirect_to tests_path
+  end
+
+  def set_user
+    @user = User.first
   end
 end

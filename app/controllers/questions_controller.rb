@@ -1,6 +1,6 @@
 class QuestionsController < ApplicationController
   before_action :set_test, only: %i[new create]
-  before_action :set_question, only: %i[edit update destroy]
+  before_action :set_question, only: %i[show edit update destroy]
 
   def new
     @question = @test.questions.new

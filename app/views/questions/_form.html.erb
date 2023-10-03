@@ -1,11 +1,11 @@
 <%= form_with model: [@test, @question], local: true do |form| %>
   <div>
     <%= form.label :title %>
-    <%= form.text_field :title %>
+    <%= form.text_field :title, size: 66 %>
   </div>
   <div>
     <%= form.label :info %>
-    <%= form.text_area :info %>
+    <%= form.text_area :info, rows: 7, cols: 60 %>
   </div>
   <div>
     <%= form.submit %>

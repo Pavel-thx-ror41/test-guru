@@ -12,18 +12,23 @@ module ApplicationHelper
   end
 
   def page_title
-    title = instance_variable_get("@#{controller_name.singularize}")&.title.to_s
+    begin
+      title = instance_variable_get("@#{controller_name.singularize}")&.title.to_s
+    rescue StandardError
+      title = nil
+    end
+
     case action_name
     when 'index'
       controller_name.capitalize
     when 'new'
       "#{action_name.capitalize} #{controller_name.singularize.capitalize}"
     when 'edit'
-      "#{action_name.capitalize} #{controller_name.singularize.capitalize}: '#{title}'"
+      "#{action_name.capitalize} #{controller_name.singularize.capitalize}: '#{title}'" if title
     when 'show'
-      "#{controller_name.singularize.capitalize}: '#{title}'"
+      "#{controller_name.singularize.capitalize}: '#{title}'" if title
     else
-      'Welcome'
+      title
     end
   end
 end
