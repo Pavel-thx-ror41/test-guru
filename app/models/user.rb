@@ -1,10 +1,18 @@
 class User < ApplicationRecord
-  has_secure_token :password_reset_token
-  has_secure_password
   has_many :test_passages
   has_many :tests, through: :test_passages
+  has_many :authored_tests, class_name: 'Test', foreign_key: :user_id
 
-  validates :email, :name, :password_digest, :info, presence: true
+  has_secure_password
+  validates :password, presence: true, if: Proc.new { |u| u.password_digest.blank? }
+  validates :password, confirmation: true
+  validates :email, presence: true, uniqueness: { message: 'уже используется другим пользователем' }
+  validates :email, format: { with: URI::MailTo::EMAIL_REGEXP, message: 'неверный формат адреса' }
+  before_validation :normalize_email
+
+  def normalize_email
+    self.email = email.downcase.strip
+  end
 
   # # список всех Тестов, которые проходит или проходил Пользователь на этом уровне
   # # поломалось, TODO: переделать

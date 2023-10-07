@@ -29,17 +29,13 @@ srand(RANDOM_SEED)
   ].sample.join(' ')).split(' ')
 
   # gems/faker-3.2.0/lib/faker/default/internet.rb
-  username = Faker::Internet.username(specifier: full_name.join('_'), separators: '_')
   email = Faker::Internet.email(name: full_name[0], domain: full_name[1])
 
   User.create!(
     email: email,
-    name: username,
     password_digest: Faker::Lorem.characters(number: ActiveModel::SecurePassword::MAX_PASSWORD_LENGTH_ALLOWED),
-    password_reset_token: nil,
-    info: Faker::Lorem.paragraph_by_chars(number: 128)
   )
-  puts "  U: #{username}"
+  puts "  U: #{email}"
 end
 
 

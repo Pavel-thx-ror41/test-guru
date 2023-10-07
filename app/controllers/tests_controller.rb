@@ -22,7 +22,7 @@ class TestsController < ApplicationController
       flash[:notice] = 'Test created'
       redirect_to tests_path
     else
-      flash.now[:notice] = { errors: entity_errors_list(@test) }
+      flash.now[:alert] = { errors: entity_errors_list(@test) }
       render :new, status: :unprocessable_entity
     end
   end
@@ -32,7 +32,7 @@ class TestsController < ApplicationController
       flash[:notice] = 'Test updated'
       redirect_to tests_path
     else
-      flash.now[:notice] = { errors: entity_errors_list(@test) }
+      flash.now[:alert] = { errors: entity_errors_list(@test) }
       render :edit, status: :unprocessable_entity
     end
   end
@@ -67,6 +67,6 @@ class TestsController < ApplicationController
   end
 
   def set_user
-    @user = User.first
+    @user = current_user
   end
 end

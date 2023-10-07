@@ -16,7 +16,7 @@ class AnswersController < ApplicationController
     if @answer.save
       redirect_to @question, notice: 'Answer was successfully created.'
     else
-      flash.now[:notice] = { errors: entity_errors_list(@answer) }
+      flash.now[:alert] = { errors: entity_errors_list(@answer) }
       render :new, status: :unprocessable_entity
     end
   end
@@ -25,7 +25,7 @@ class AnswersController < ApplicationController
     if @answer.update(answer_params)
       redirect_to @answer, notice: 'Answer was successfully updated.'
     else
-      flash.now[:notice] = { errors: entity_errors_list(@answer) }
+      flash.now[:alert] = { errors: entity_errors_list(@answer) }
       render :edit, status: :unprocessable_entity
     end
   end
