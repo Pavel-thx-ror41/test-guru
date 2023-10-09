@@ -7,14 +7,20 @@ module ApplicationHelper
     link_to "исходник на GitHub: #{repo}", "https://github.com/#{author}/#{repo}", target: 'blank'
   end
 
-  def flash_html(name)
-    return unless flash[name]
+  def flash_html
+    result = if flash[:alert].is_a?(Hash) && flash[:alert][:errors].present?
+               "<div id='#{:alert}'><table><tr><td>#{flash[:alert][:errors].join('</td></tr><tr><td>')}</td></tr></table></div>"
+             elsif flash[:alert].is_a?(String)
+               "<div id='#{:alert}'>#{flash[:alert]}</div>"
+             end.to_s
 
-    if flash[name].is_a?(Hash) && flash[name][:errors].present?
-      "<div id='#{name}'><table><tr><td>#{flash[name][:errors].join('</td></tr><tr><td>')}</td></tr></table></div>"
-    else
-      "<div id='#{name}'>#{flash[name]}</div>"
-    end.html_safe
+    result += if flash[:notice].is_a?(Hash) && flash[:notice][:errors].present?
+                "<div id='#{:notice}'><table><tr><td>#{flash[:notice][:errors].join('</td></tr><tr><td>')}</td></tr></table></div>"
+              elsif flash[:notice].is_a?(String)
+                "<div id='#{:notice}'>#{flash[:notice]}</div>"
+              end.to_s
+
+    result.html_safe
   end
 
   def page_title
