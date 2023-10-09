@@ -49,8 +49,8 @@ class TestsController < ApplicationController
   end
 
   def start
-    @user.tests.push(@test)
-    redirect_to @user.test_passage(@test)
+    current_user.tests.push(@test)
+    redirect_to current_user.test_passage(@test)
   end
 
   private
@@ -64,9 +64,5 @@ class TestsController < ApplicationController
   rescue ActiveRecord::RecordNotFound
     flash[:notice] = 'Test not found'
     redirect_to tests_path
-  end
-
-  def set_user
-    @user = current_user
   end
 end
