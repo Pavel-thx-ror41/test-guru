@@ -9,12 +9,7 @@ class SessionsController < ApplicationController
 
     if @user&.authenticate(params[:password])
       session[:user_id] = @user.id
-
-      if session[:redirect_to_url]
-        redirect_to session.delete(:redirect_to_url), notice: 'Вход выполнен'
-      else
-        redirect_to root_path, notice: 'Вход выполнен'
-      end
+      redirect_to (session.delete(:redirect_to_url) || root_path), notice: 'Вход выполнен'
     else
       flash.now[:alert] = 'Ошибка входа, проверьте email и пароль'
       render :new
