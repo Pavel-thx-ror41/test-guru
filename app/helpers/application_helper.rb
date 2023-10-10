@@ -8,19 +8,13 @@ module ApplicationHelper
   end
 
   def flash_html
-    result = if flash[:alert].is_a?(Hash) && flash[:alert][:errors].present?
-               "<div id='#{:alert}'><table><tr><td>#{flash[:alert][:errors].join('</td></tr><tr><td>')}</td></tr></table></div>"
-             elsif flash[:alert].is_a?(String)
-               "<div id='#{:alert}'>#{flash[:alert]}</div>"
-             end.to_s
-
-    result += if flash[:notice].is_a?(Hash) && flash[:notice][:errors].present?
-                "<div id='#{:notice}'><table><tr><td>#{flash[:notice][:errors].join('</td></tr><tr><td>')}</td></tr></table></div>"
-              elsif flash[:notice].is_a?(String)
-                "<div id='#{:notice}'>#{flash[:notice]}</div>"
-              end.to_s
-
-    result.html_safe
+    flash.map do |name, value|
+      if value.is_a?(Hash) && value[:errors].present?
+        "<div id='#{name}'><table><tr><td>#{value[:errors].join('</td></tr><tr><td>')}</td></tr></table></div>"
+      else
+        "<div id='#{name}'>#{value}</div>"
+      end
+    end.join.html_safe
   end
 
   def page_title
