@@ -7,8 +7,14 @@ module ApplicationHelper
     link_to "исходник на GitHub: #{repo}", "https://github.com/#{author}/#{repo}", target: 'blank'
   end
 
-  def to_ul(list)
-    "<ul><li><mark>#{list.join('</li></mark><li><mark>')}</mark></li></ul>".html_safe
+  def flash_html
+    flash.map do |name, value|
+      if value.is_a?(Hash) && value[:errors].present?
+        "<div id='#{name}'><table><tr><td>#{value[:errors].join('</td></tr><tr><td>')}</td></tr></table></div>"
+      else
+        "<div id='#{name}'>#{value}</div>"
+      end
+    end.join.html_safe
   end
 
   def page_title
@@ -22,7 +28,7 @@ module ApplicationHelper
     when 'index'
       controller_name.capitalize
     when 'new'
-      "#{action_name.capitalize} #{controller_name.singularize.capitalize}"
+      "#{action_name.capitalize} #{controller_name.singularize.capitalize}" unless controller_name.eql?('sessions')
     when 'edit'
       "#{action_name.capitalize} #{controller_name.singularize.capitalize}: '#{title}'" if title
     when 'show'

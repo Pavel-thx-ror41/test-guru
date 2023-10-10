@@ -22,7 +22,7 @@ class TestsController < ApplicationController
       flash[:notice] = 'Test created'
       redirect_to tests_path
     else
-      flash.now[:notice] = { errors: entity_errors_list(@test) }
+      flash.now[:alert] = { errors: entity_errors_list(@test) }
       render :new, status: :unprocessable_entity
     end
   end
@@ -32,7 +32,7 @@ class TestsController < ApplicationController
       flash[:notice] = 'Test updated'
       redirect_to tests_path
     else
-      flash.now[:notice] = { errors: entity_errors_list(@test) }
+      flash.now[:alert] = { errors: entity_errors_list(@test) }
       render :edit, status: :unprocessable_entity
     end
   end
@@ -49,8 +49,8 @@ class TestsController < ApplicationController
   end
 
   def start
-    @user.tests.push(@test)
-    redirect_to @user.test_passage(@test)
+    current_user.tests.push(@test)
+    redirect_to current_user.test_passage(@test)
   end
 
   private
@@ -64,9 +64,5 @@ class TestsController < ApplicationController
   rescue ActiveRecord::RecordNotFound
     flash[:notice] = 'Test not found'
     redirect_to tests_path
-  end
-
-  def set_user
-    @user = User.first
   end
 end
