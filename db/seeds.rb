@@ -22,7 +22,7 @@ end
 puts "\nUSERS"
 Faker::Config.random = Random.new(RANDOM_SEED)
 srand(RANDOM_SEED)
-25.times do
+5.times do
   full_name = Russian.transliterate([
     [Faker::Name.female_first_name, Faker::Name.female_last_name],
     [Faker::Name.male_first_name, Faker::Name.male_last_name]
@@ -30,11 +30,8 @@ srand(RANDOM_SEED)
 
   # gems/faker-3.2.0/lib/faker/default/internet.rb
   email = Faker::Internet.email(name: full_name[0], domain: full_name[1])
-
-  User.create!(
-    email: email,
-    password_digest: Faker::Lorem.characters(number: ActiveModel::SecurePassword::MAX_PASSWORD_LENGTH_ALLOWED),
-  )
+  pass = Faker::Lorem.characters(number: User.password_length.last / 20)
+  User.create!(email: email, password: pass, password_confirmation: pass, confirmed_at: Time.now - 1.day)
   puts "  U: #{email}"
 end
 

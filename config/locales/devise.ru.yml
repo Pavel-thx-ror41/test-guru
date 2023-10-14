@@ -1,0 +1,30 @@
+ru:
+  devise:
+    failure:
+      user:
+        already_authenticated: "Уже вошли"
+        unauthenticated: "Требуется вход"
+        unconfirmed: "Требуется подстверждение, проверьте почту"
+        invalid: "Вход не выполнен"
+    sessions:
+      user:
+        signed_in: "Вы вошли"
+    confirmations:
+      user:
+        confirmed: "Адрес подтверждён"
+    registrations:
+      user:
+        signed_up: "Пользователь зарегистрирован"
+  errors:
+    messages:
+      not_saved: "Не сохранён"
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              already_confirmed: "Почтовый адрес уже был подтверждён ранее"
+
+
+
