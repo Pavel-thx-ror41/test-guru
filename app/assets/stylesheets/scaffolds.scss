@@ -33,6 +33,23 @@ div.field,
 div.actions {
   margin-bottom: 10px; }
 
+form.button_to input[type="submit"]:hover {
+  color: #fff;
+  background-color: #000; }
+
+form.button_to input[type="submit"] {
+  // see: body, p, ol, ul, td
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+
+  text-decoration: underline;
+  background: none;
+  border:none;
+  margin:0;
+  padding:0;
+  cursor: pointer; }
+
 .field_with_errors {
   padding: 2px;
   background-color: red;
