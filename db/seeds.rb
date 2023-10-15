@@ -31,8 +31,16 @@ srand(RANDOM_SEED)
   # gems/faker-3.2.0/lib/faker/default/internet.rb
   email = Faker::Internet.email(name: full_name[0], domain: full_name[1])
   pass = Faker::Lorem.characters(number: User.password_length.last / 20)
-  User.create!(email: email, password: pass, password_confirmation: pass, confirmed_at: Time.now - 1.day)
-  puts "  U: #{email}"
+  User.create!(
+    first_name: full_name[0],
+    last_name: full_name[1],
+    type: %w[User Admin].sample,
+    email: email,
+    password: pass,
+    password_confirmation: pass,
+    confirmed_at: Time.now
+  )
+  puts "  U: #{email} #{pass} #{full_name.join(' ')}"
 end
 
 
@@ -42,7 +50,7 @@ srand(RANDOM_SEED)
 Faker::GreekPhilosophers.fetch_all('greek_philosophers.quotes').each do |title|
   Test.create!(
     title: title,
-    user_id: User.all.ids.sample,
+    user_id: Admin.all.ids.sample,
     category_id: Category.ids.sample,
     published: Faker::Boolean.boolean,
     level: (1..7).to_a.sample,
@@ -57,7 +65,7 @@ Faker::Config.random = Random.new(RANDOM_SEED)
 srand(RANDOM_SEED)
 Test.all.each do |test|
   puts "  for T: #{test.title}"
-  (2..7).to_a.sample.times do
+  (2..5).to_a.sample.times do
     title = Faker::Hacker.say_something_smart.sub('!', '?')
     Question.create!(test_id: test.id, title: title, info: Faker::Lorem.paragraph_by_chars(number: 128))
     puts "    Q: #{title}"
