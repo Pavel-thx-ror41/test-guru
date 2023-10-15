@@ -1,19 +1,10 @@
 <tr>
-  <td rowspan="4"><%= test.user_id %></td>
-  <td rowspan="4"><%= test.category_id %></td>
-  <td rowspan="4"><%= test.published %></td>
-  <td rowspan="4"><%= test.level %></td>
-  <td rowspan="4"><%= test.questions.count %></td>
-  <td rowspan="4"><%= test.title %></td>
-  <td rowspan="4"><%= test.info %></td>
-  <td><%= link_to 'Show', test, class: :button %></td>
-</tr>
-<tr>
-  <td><%= link_to 'Edit', edit_test_path(test), class: :button %></td>
-</tr>
-<tr>
+  <td><%= test.user_id %></td>
+  <td><%= test.category_id %></td>
+  <td><%= test.published %></td>
+  <td><%= test.level %></td>
+  <td><%= test.questions.count %></td>
+  <td><%= test.title %></td>
+  <td><%= test.info %></td>
   <td><%= button_to 'Start', start_test_path(test) %></td>
-</tr>
-<tr>
-  <td><%= button_to 'Destroy', test, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 </tr>

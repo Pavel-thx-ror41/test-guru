@@ -13,7 +13,7 @@ class QuestionsController < ApplicationController
 
     if @question.save
       flash[:notice] = 'Question created'
-      redirect_to edit_test_path(@test)
+      redirect_to edit_admin_test_path(@test)
     else
       flash.now[:alert] = { errors: entity_errors_list(@question) }
       render :new, status: :unprocessable_entity
@@ -23,7 +23,7 @@ class QuestionsController < ApplicationController
   def update
     if @question.update(question_params)
       flash[:notice] = 'Question updated'
-      redirect_to edit_test_path(@question.test)
+      redirect_to edit_admin_test_path(@question.test)
     else
       flash.now[:alert] = { errors: entity_errors_list(@question) }
       render :edit, status: :unprocessable_entity
@@ -38,7 +38,7 @@ class QuestionsController < ApplicationController
                      else
                        'Question was NOT destroyed.'
                      end
-    redirect_to edit_test_path(@question.test)
+    redirect_to edit_admin_test_path(@question.test)
   end
 
   private

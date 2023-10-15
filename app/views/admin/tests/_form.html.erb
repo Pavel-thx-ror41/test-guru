@@ -1,4 +1,4 @@
-<%= form_with model: @test, local: true do |form| %>
+<%= form_with model: [:admin, @test], local: true do |form| %>
   <div>
     <%= form.label :category_id %>
     <%= form.collection_select :category_id, Category.all, :id, :title, prompt: true %>
@@ -34,7 +34,7 @@
   <div>
     <strong>Questions:</strong> <%= link_to('+', new_test_question_path(@test), class: :button)%><br>
     <ul>
-      <%= render(partial: 'tests/question_edit', collection: @test.questions, as: :question) || 'No questions' %>
+      <%= render(partial: 'admin/tests/question_edit', collection: @test.questions, as: :question) || 'No questions' %>
     </ul>
   </div>
 <% end %>

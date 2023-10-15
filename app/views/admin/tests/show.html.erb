@@ -17,10 +17,10 @@
 <div>
   <strong>Questions:</strong>
   <ul>
-    <%= render(partial: 'tests/question_show', collection: @test.questions, as: :question) || 'No questions' %>
+    <%= render(partial: 'admin/tests/question_show', collection: @test.questions, as: :question) || 'No questions' %>
   </ul>
 </div>
 
 <hr>
-<%= link_to 'Edit', edit_test_path(@test), class: :button %>
-<%= link_to 'Back', tests_path, class: :button %>
+<%= link_to 'Edit', edit_admin_test_path(@test), class: :button %>
+<%= link_to 'Back', admin_tests_path, class: :button %>
