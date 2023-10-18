@@ -1,4 +1,4 @@
-class QuestionsController < ApplicationController
+class Admin::QuestionsController < Admin::BaseController
   before_action :set_test, only: %i[new create]
   before_action :set_question, only: %i[show edit update destroy]
 
@@ -52,13 +52,13 @@ class QuestionsController < ApplicationController
   rescue ActiveRecord::RecordNotFound
     flash.now[:alert] = 'Test not found'
     @questions = nil
-    redirect_to tests_path
+    redirect_to admin_tests_path
   end
 
   def set_question
     @question = Question.find(params[:id])
   rescue ActiveRecord::RecordNotFound
     flash[:notice] = 'Question not found'
-    redirect_to tests_path
+    redirect_to admin_tests_path
   end
 end

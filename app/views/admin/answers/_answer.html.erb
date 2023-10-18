@@ -1,0 +1,5 @@
+<li  style="display: flex;">
+  <%= link_to answer.title, admin_answer_path(answer), title: answer.info %>&nbsp
+  <%= link_to 'Edit', edit_admin_answer_path(answer) %>&nbsp|&nbsp
+  <%= button_to 'Delete', admin_answer_path(answer), method: :delete, data: { confirm: 'Are you sure?' } %>
+</li>

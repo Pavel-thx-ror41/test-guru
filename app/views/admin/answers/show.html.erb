@@ -18,5 +18,5 @@
   <%= @answer.info %>
 </p>
 
-<%= link_to 'Edit', edit_answer_path(@answer) %> |
-<%= link_to 'Back to Question', @answer.question %>
+<%= link_to 'Edit', edit_admin_answer_path(@answer) %> |
+<%= link_to 'Back to Question', [:admin, @answer.question] %>

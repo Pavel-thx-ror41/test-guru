@@ -1,4 +1,4 @@
-class AnswersController < ApplicationController
+class Admin::AnswersController < Admin::BaseController
   before_action :find_question, only: %i[new create]
   before_action :set_answer, only: %i[show edit update destroy]
 
@@ -14,7 +14,7 @@ class AnswersController < ApplicationController
     @answer = @question.answers.new(answer_params)
 
     if @answer.save
-      redirect_to @question, notice: 'Answer was successfully created.'
+      redirect_to [:admin, @question], notice: 'Answer was successfully created.'
     else
       flash.now[:alert] = { errors: entity_errors_list(@answer) }
       render :new, status: :unprocessable_entity
@@ -23,7 +23,7 @@ class AnswersController < ApplicationController
 
   def update
     if @answer.update(answer_params)
-      redirect_to @answer, notice: 'Answer was successfully updated.'
+      redirect_to [:admin, @answer], notice: 'Answer was successfully updated.'
     else
       flash.now[:alert] = { errors: entity_errors_list(@answer) }
       render :edit, status: :unprocessable_entity
@@ -38,7 +38,7 @@ class AnswersController < ApplicationController
                      else
                        'Aanswer was NOT destroyed.'
                      end
-    redirect_to @answer.question
+    redirect_to [:admin, @answer.question]
   end
 
   private
