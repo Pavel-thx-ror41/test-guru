@@ -8,7 +8,7 @@ ru:
         invalid: "Вход не выполнен"
     sessions:
       user:
-        signed_in: "Вы вошли"
+        signed_in: "Привет, #{current_user&.first_name}!"
     confirmations:
       user:
         confirmed: "Адрес подтверждён"

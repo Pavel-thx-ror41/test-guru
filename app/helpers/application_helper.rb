@@ -11,10 +11,16 @@ module ApplicationHelper
     flash.map do |name, value|
       if value.is_a?(Hash) && value[:errors].present?
         "<div id='#{name}'><table><tr><td>#{value[:errors].join('</td></tr><tr><td>')}</td></tr></table></div>"
+      elsif value.include?('#{')
+        "<div id='#{name}'>#{interpolate(value)}</div>"
       else
         "<div id='#{name}'>#{value}</div>"
       end
     end.join.html_safe
+  end
+
+  def interpolate(value)
+    eval('"'+value+'"')
   end
 
   def page_title
