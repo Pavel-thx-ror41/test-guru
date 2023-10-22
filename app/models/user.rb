@@ -16,6 +16,7 @@ class User < ApplicationRecord
   validates :password, confirmation: true
   validates :email, presence: true, uniqueness: { message: 'уже используется другим пользователем' }
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP, message: 'неверный формат адреса' }
+  validates :first_name, :last_name, presence: true
   before_validation :normalize_email
 
   def normalize_email
