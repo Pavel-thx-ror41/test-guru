@@ -1,0 +1,8 @@
+ru:
+    activerecord:
+        errors:
+            models:
+                test:
+                    attributes:
+                        category:
+                            required: "не может быть пустым"
