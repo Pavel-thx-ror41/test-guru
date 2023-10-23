@@ -14,8 +14,7 @@ class Admin::TestsController < Admin::BaseController
   def edit; end
 
   def create
-    @test = Test.new(test_params)
-    @test.user_id = User.first.id
+    @test = current_user.authored_tests.build(test_params)
 
     if @test.save
       flash[:notice] = 'Test created'
