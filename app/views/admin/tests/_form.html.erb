@@ -1,0 +1,40 @@
+<%= form_with model: [:admin, @test], local: true do |form| %>
+  <div>
+    <%= form.label :category_id %>
+    <%= form.collection_select :category_id, Category.all, :id, :title, prompt: true %>
+  </div>
+
+  <div>
+    <%= form.label :published %>
+    <%= form.check_box :published %>
+  </div>
+
+  <div>
+    <%= form.label :level %>
+    <%= form.number_field :level %>
+  </div>
+
+  <div>
+    <%= form.label :title %>
+    <%= form.text_field :title, size: 66 %>
+  </div>
+
+  <div>
+    <%= form.label :info %>
+    <%= form.text_area :info, rows: 7, cols: 60 %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
+
+<% if @test.id %>
+  <hr>
+  <div>
+    <strong>Questions:</strong> <%= link_to('+', new_admin_test_question_path(@test), class: :button)%><br>
+    <ul>
+      <%= render(partial: 'admin/tests/question_edit', collection: @test.questions, as: :question) || 'No questions' %>
+    </ul>
+  </div>
+<% end %>

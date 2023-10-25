@@ -1,0 +1,12 @@
+<nav>
+  <%= link_to 'Тест-Гуру', root_path %>
+  <div class="nav_user">
+    <% if user_signed_in? %>
+      Welcome, <b><%= current_user.email %></b> Guru
+      <%= button_to 'Выйти', destroy_user_session_path, method: :delete, form_class: :logout_button_form, class: :button_as_href %>
+    <% else %>
+      <%= link_to 'Войти', new_user_session_path %>
+      <%= link_to 'Зарегистрироваться', new_user_registration_path %>
+    <% end %>
+  </div>
+</nav>

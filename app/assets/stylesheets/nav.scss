@@ -1,3 +1,33 @@
-.nav.user {
-  text-align: right;
+nav {
+  background-color: powderblue;
+  padding: 5pt;
+  border-radius: 5pt;
+}
+
+nav.admin {
+  background-color: lightsalmon;
+  padding: 5pt;
+  border-radius: 5pt;
+}
+
+nav a {
+  font-weight: bold;
+}
+
+.nav_user {
+  float: right;
+}
+
+form.logout_button_form {
+  float: right;
+  padding-left: 5pt;
+}
+input.button_as_href {
+  font-weight: bold;
+  text-decoration: underline;
+  background:none;
+  border:none;
+  margin:0;
+  padding:0;
+  cursor: pointer;
 }

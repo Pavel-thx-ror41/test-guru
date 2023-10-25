@@ -1,0 +1,21 @@
+<tr>
+  <td rowspan="3"><%= test.author.email %></td>
+  <td rowspan="3"><%= test.category.title %></td>
+  <td rowspan="3"><%= test.published %></td>
+  <td rowspan="3"><%= test.level %></td>
+  <td rowspan="3"><%= test.questions.count %></td>
+  <td rowspan="3"><%= test.title %></td>
+  <td rowspan="3"><%= test.info %></td>
+  <td><%= link_to 'Show', admin_test_path(test), class: :button %></td>
+</tr>
+<tr>
+  <td><%= link_to 'Edit', edit_admin_test_path(test), class: :button %></td>
+</tr>
+<tr>
+  <td>
+    <%= button_to 'Destroy',
+                  admin_test_path(test),
+                  method: :delete,
+                  data: { confirm: 'Are you sure?' } %>
+  </td>
+</tr>

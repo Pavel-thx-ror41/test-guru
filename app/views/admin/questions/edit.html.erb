@@ -1,0 +1,14 @@
+<%= render 'form' %>
+
+<div>
+  <strong>Answers:</strong>
+  <ol>
+    <%= render @question.answers %>
+  </ol>
+</div>
+
+<%= link_to 'New answer', new_admin_question_answer_path(@question) %>
+
+<hr>
+
+<%= link_to 'Back to Test edit', edit_admin_test_path(@question.test), class: :button %>
