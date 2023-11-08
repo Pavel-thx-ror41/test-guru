@@ -3,15 +3,28 @@ class ApplicationController < ActionController::Base
 
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :authenticate_user!
+  before_action :set_locale
 
   def entity_errors_list(entity)
-    entity.errors.map { |e| [e.attribute, e.message].join(' ') }
+    entity.errors.map { |e| [entity.class.human_attribute_name(e.attribute), e.message].join(' ') }.uniq
+  end
+
+  def default_url_options
+    if params[:lang] && !params[:lang]&.to_sym.eql?(I18n.default_locale)
+      { lang: I18n.locale }
+    else
+      {}
+    end
   end
 
   private
 
   def after_sign_in_path_for(resource)
     resource.admin? ? admin_tests_path : tests_path
+  end
+
+  def set_locale
+    I18n.locale = I18n.locale_available?(params[:lang]) ? params[:lang] : I18n.default_locale
   end
 
   protected
