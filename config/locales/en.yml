@@ -30,4 +30,29 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  admin:
+    tests:
+      new: "New Test"
+      create:
+        success: "Test created"
+        # created
+      # created
+      index: "Tests"
+      show: "Test"
+      edit: "Test"
+      update:
+        success: "Test updated"
+      destroy:
+        success: "Test deleted successfully"
+        failure: "Test deletion error"
+      test_not_found: "Test not found"
+#    questions:
+#      new: "New Question"
+#      index: "Questions"
+#      show: "Question"
+#      edit: "Question"
+#    answers:
+#      new: "New Answer"
+#      index: "Answers"
+#      show: "Answer"
+#      edit: "Answer"
