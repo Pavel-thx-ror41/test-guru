@@ -59,6 +59,8 @@ en:
     cancel: "Cancel"
     created: "created"
     total: "Total"
+    select:
+      prompt: "Please select"
     submit:
       confirm: "Are you sure?"
       test:

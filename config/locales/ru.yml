@@ -63,6 +63,8 @@ ru:
     cancel: "Отмена"
     created: "создан"
     total: "Всего"
+    select:
+      prompt: "Пожалуйста выбирите"
     submit:
       confirm: "Уверены?"
       test:
