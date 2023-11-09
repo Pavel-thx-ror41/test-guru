@@ -30,6 +30,14 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
+
+  test_passages:
+    result:
+      header: "Test '%{title}'"
+      passed: "successfully passed"
+      failed: "failed"
+      correct_answers_from: "correct answers %{correct} from %{total}"
+
   test_mailer:
     completed_test:
       subject: 'You just completed the TestGuru test!'
