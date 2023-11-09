@@ -30,6 +30,10 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 ru:
+  test_mailer:
+    completed_test:
+      subject: 'Вы успешно завершили Тест на TestGuru!'
+
   admin:
     tests:
       new: "Новый Тест"
