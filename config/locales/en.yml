@@ -30,6 +30,50 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
+  activerecord:
+    models:
+      test: "Test"
+      tests:
+        zero: 'no Tests'
+        one: '%{count} Test'
+        other: '%{count} Tests'
+      questions:
+        zero: 'no Questions'
+        one: '%{count} Question'
+        other: '%{count} Questions'
+    attributes:
+      test:
+        user: "Author"
+        category: "Category"
+        published: "Published"
+        title: "Title"
+        level: "Level"
+        info: "Info"
+    errors:
+      messages:
+        required: "must exist"
+        blank: "can't be blank"
+        only_one_test_w_same_title_and_level: "Only one Test can exist with the same Title and Level"
+
+  helpers:
+    cancel: "Cancel"
+    created: "created"
+    total: "Total"
+    submit:
+      confirm: "Are you sure?"
+      test:
+        create: "Create Test"
+        update: "Update Test"
+      question:
+        create: "Create Question"
+        delete: "Delete Question"
+    label:
+      test:
+        category_id: "Category"
+        published: "Published"
+        level: "Level"
+        title: "Title"
+        info: "Info"
 
   test_passages:
     result:
@@ -58,9 +102,13 @@ en:
         success: "Test deleted successfully"
         failure: "Test deletion error"
       test_not_found: "Test not found"
-#    questions:
+      test:
+        show: "Show"
+        edit: "Edit"
+        delete: "Delete"
+    questions:
+      index: "Questions"
 #      new: "New Question"
-#      index: "Questions"
 #      show: "Question"
 #      edit: "Question"
 #    answers:

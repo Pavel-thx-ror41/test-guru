@@ -30,6 +30,54 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 ru:
+  activerecord:
+    models:
+      test: "Тест"
+      tests:
+        zero: 'нет Тестов'
+        one: '%{count} Тест'
+        few: '%{count} Теста'
+        many: '%{count} Тестов'
+        other: 'тесты'
+      questions:
+        zero: 'нет Вопросов'
+        one: '%{count} Вопрос'
+        few: '%{count} Вопроса'
+        many: '%{count} Вопросов'
+        other: 'Вопросы'
+    attributes:                     # error messages construct
+      test:                         # Test.model_name.human
+        user: "Автор"               # Test.human_attribute_name(:user)
+        category: "Раздел"
+        published: "Опубликован"
+        title: "Название"
+        level: "Уровень"
+        info: "Описание"
+    errors:
+      messages:
+        required: "необходимо выбрать"
+        blank: "не может быть пустым"
+        only_one_test_w_same_title_and_level: "Может существовать только один Тест с данным Названием и Уровнем"
+
+  helpers:
+    cancel: "Отмена"
+    created: "создан"
+    total: "Всего"
+    submit:
+      confirm: "Уверены?"
+      test:
+        create: "Создать Тест"
+        update: "Обновить Тест"
+      question:
+        create: "Создать Вопрос"
+        delete: "Удалить Вопрос"
+    label: # auto used: VIEW FORM
+      test:
+        category_id: "Раздел"
+        published: "Опубликован"
+        level: "Уровень"
+        title: "Название"
+        info: "Описание"
 
   test_passages:
     result:
@@ -58,9 +106,13 @@ ru:
         success: "Тест удалён"
         failure: "Ошибка удаения Теста"
       test_not_found: "Тест не найден"
-#    questions:
+      test:
+        show: "Показать"
+        edit: "Изменить"
+        delete: "Удалить"
+    questions:
+      index: "Вопросы"
 #      new: "Новый Вопрос"
-#      index: "Вопросы"
 #      show: "Вопрос"
 #      edit: "Вопрос"
 #    answers:

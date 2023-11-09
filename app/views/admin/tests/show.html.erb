@@ -1,26 +1,18 @@
-<p>
-  <strong>Email:</strong>
-  <%= @test.author.email %>
-</p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @test.title %>
-</p>
-
-<p>
-  <strong>Info:</strong>
-  <%= @test.info %>
-</p>
+<p><strong><%= Test.human_attribute_name(:user) %>:     </strong> <%= @test.author.email %></p>
+<p><strong><%= Test.human_attribute_name(:category) %>: </strong> <%= @test.category.title %></p>
+<p><strong><%= Test.human_attribute_name(:published) %>:</strong> <%= @test.published %></p>
+<p><strong><%= Test.human_attribute_name(:level) %>:    </strong> <%= @test.level %></p>
+<p><strong><%= Test.human_attribute_name(:title) %>:    </strong> <%= @test.title %></p>
+<p><strong><%= Test.human_attribute_name(:info) %>:     </strong> <%= @test.info %></p>
 
 <hr>
 <div>
-  <strong>Questions:</strong>
+  <strong><%= t('admin.questions.index') %>:</strong>
   <ul>
-    <%= render(partial: 'admin/tests/question_show', collection: @test.questions, as: :question) || 'No questions' %>
+    <%= render(partial: 'admin/tests/question_show', collection: @test.questions, as: :question) || t('activerecord.models.questions', count: 0) %>
   </ul>
 </div>
 
 <hr>
-<%= link_to 'Edit', edit_admin_test_path(@test), class: :button %>
-<%= link_to 'Back to Tests', admin_tests_path, class: :button %>
+<%= link_to t('admin.tests.test.edit'), edit_admin_test_path(@test), class: :button %>
+<%= link_to t('admin.tests.index'), admin_tests_path, class: :button %>

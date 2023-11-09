@@ -1,13 +1,13 @@
 <table>
   <thead>
     <tr>
-      <th>User_id</th>
-      <th>Category_id</th>
-      <th>Published</th>
-      <th>Level</th>
-      <th>Questions</th>
-      <th>Title</th>
-      <th>Info</th>
+      <th><%= Test.human_attribute_name(:user) %></th>
+      <th><%= Test.human_attribute_name(:category) %></th>
+      <th><%= Test.human_attribute_name(:published) %></th>
+      <th><%= Test.human_attribute_name(:level) %></th>
+      <th><%= t('admin.questions.index') %></th>
+      <th><%= Test.human_attribute_name(:title) %></th>
+      <th><%= Test.human_attribute_name(:info) %></th>
       <th></th>
     </tr>
   </thead>
@@ -15,11 +15,11 @@
   <tbody>
     <%= render @tests %>
     <tr>
-      <td colspan="8">Total: <%= @tests.count %> <%= controller_name.singularize.pluralize(@tests.count) %></td>
+      <td colspan="8"><%= t('helpers.total') %>: <%= t('activerecord.models.tests', count: @tests.count) %></td>
     </tr>
   </tbody>
 </table>
 
 <br>
 
-<%= link_to 'New Test', new_admin_test_path, class: :button %>
+<%= link_to t('helpers.submit.test.create'), new_admin_test_path, class: :button %>
