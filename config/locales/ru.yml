@@ -63,6 +63,7 @@ ru:
     cancel: "Отмена"
     created: "создан"
     total: "Всего"
+    back: "Назад"
     select:
       prompt: "Пожалуйста выбирите"
     submit:
@@ -94,14 +95,18 @@ ru:
 
   admin:
     tests:
-      new: "Новый Тест"
+      new:
+        page_title: "Новый Тест"
       create:
         success: "Teст создан"
         # created: "Teст создан"
       # created: "Teст создан"
-      index: "Тесты"
-      show: "Тест"
-      edit: "Тест"
+      index:
+        page_title: "Тесты"
+      show:
+        page_title: "Тест"
+      edit:
+        page_title: "Тест"
       update:
         success: "Тест обновлён"
       destroy:
@@ -113,7 +118,8 @@ ru:
         edit: "Изменить"
         delete: "Удалить"
     questions:
-      index: "Вопросы"
+      index:
+        page_title: "Вопросы"
 #      new: "Новый Вопрос"
 #      show: "Вопрос"
 #      edit: "Вопрос"

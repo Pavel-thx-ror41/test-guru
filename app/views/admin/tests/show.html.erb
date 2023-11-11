@@ -7,7 +7,7 @@
 
 <hr>
 <div>
-  <strong><%= t('admin.questions.index') %>:</strong>
+  <strong><%= t('admin.questions.index.page_title') %>:</strong>
   <ul>
     <%= render(partial: 'admin/tests/question_show', collection: @test.questions, as: :question) || t('activerecord.models.questions', count: 0) %>
   </ul>
@@ -15,4 +15,4 @@
 
 <hr>
 <%= link_to t('admin.tests.test.edit'), edit_admin_test_path(@test), class: :button %>
-<%= link_to t('admin.tests.index'), admin_tests_path, class: :button %>
+<%= link_to t('admin.tests.index.page_title'), admin_tests_path, class: :button %>

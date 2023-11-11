@@ -26,18 +26,19 @@ module ApplicationHelper
   def page_title
     case action_name
     when 'index'
-      t("#{controller_path.gsub('/', '.')}.#{action_name}")
+      t("#{controller_path.gsub('/', '.')}.#{action_name}.page_title")
     when 'new'
-      t("#{controller_path.gsub('/', '.')}.#{action_name}") unless controller_name.eql?('sessions')
+      t("#{controller_path.gsub('/', '.')}.#{action_name}.page_title") unless controller_name.eql?('sessions')
     when 'edit', 'show'
-      t("#{controller_path.gsub('/', '.')}.#{action_name}") + ": #{entity_title}"
+      t("#{controller_path.gsub('/', '.')}.#{action_name}.page_title") + entity_title
     else # TODO: возможно не используется, проверить
       entity_title
     end
   end
 
   def entity_title
-    instance_variable_get("@#{controller_name.singularize}")&.title.to_s
+    title = instance_variable_get("@#{controller_name.singularize}")&.title.to_s
+    title.present? ? ": #{title}" : ""
   rescue StandardError
     nil
   end

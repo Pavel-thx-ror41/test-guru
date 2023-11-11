@@ -59,6 +59,7 @@ en:
     cancel: "Cancel"
     created: "created"
     total: "Total"
+    back: "Back"
     select:
       prompt: "Please select"
     submit:
@@ -90,14 +91,18 @@ en:
 
   admin:
     tests:
-      new: "New Test"
+      new:
+        page_title: "New Test"
       create:
         success: "Test created"
         # created
       # created
-      index: "Tests"
-      show: "Test"
-      edit: "Test"
+      index:
+        page_title: "Tests"
+      show:
+        page_title: "Test"
+      edit:
+        page_title: "Test"
       update:
         success: "Test updated"
       destroy:
@@ -109,7 +114,8 @@ en:
         edit: "Edit"
         delete: "Delete"
     questions:
-      index: "Questions"
+      index:
+        page_title: "Questions"
 #      new: "New Question"
 #      show: "Question"
 #      edit: "Question"

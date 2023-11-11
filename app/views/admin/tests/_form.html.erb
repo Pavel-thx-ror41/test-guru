@@ -32,7 +32,7 @@
 <% if @test.id %>
   <hr>
   <div>
-    <strong><%= t('admin.questions.index') %>:</strong>
+    <strong><%= t('admin.questions.index.page_title') %>:</strong>
     <ul>
       <%= render(partial: 'admin/tests/question_edit', collection: @test.questions, as: :question) || t('activerecord.models.questions', count: 0) %>
     </ul>
