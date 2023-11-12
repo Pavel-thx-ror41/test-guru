@@ -1,5 +1,3 @@
-<h1>Passing the '<%= @test_passage.test.title %>' test</h1>
-
 <b><%= @test_passage.current_question.title %></b><br>
 <%= @test_passage.current_question.info %>
 
@@ -11,10 +9,11 @@
     </p>
   <% end %>
 
-  <p><%= form.submit 'Next' %></p>
+  <p><%= form.submit t('helpers.next') %></p>
   <p>
-  (Question: <%= @test_passage.test.questions.order(:id).ids.find_index(@test_passage.current_question.id)+1 %>
-  from
-  <%= @test_passage.test.questions.count %>)
+  (
+    <%= t('questions.show.title') %>: <%= @test_passage.test.questions.order(:id).ids.find_index(@test_passage.current_question.id)+1 %>
+    <%= t('helpers.from') %> <%= @test_passage.test.questions.count %>
+  )
   </p>
 <% end %>

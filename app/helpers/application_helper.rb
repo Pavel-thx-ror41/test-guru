@@ -25,11 +25,11 @@ module ApplicationHelper
 
   def page_title
     case action_name
-    when 'index'
+    when 'index', 'result'
       t("#{controller_path.gsub('/', '.')}.#{action_name}.page_title")
     when 'new'
       t("#{controller_path.gsub('/', '.')}.#{action_name}.page_title") unless controller_name.eql?('sessions')
-    when 'edit', 'show'
+    when 'edit', 'show', 'update'
       t("#{controller_path.gsub('/', '.')}.#{action_name}.page_title") + entity_title
     else # TODO: возможно не используется, проверить
       entity_title

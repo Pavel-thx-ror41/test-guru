@@ -64,6 +64,8 @@ ru:
     created: "создан"
     total: "Всего"
     back: "Назад"
+    from: "из"
+    next: "Далее"
     select:
       prompt: "Пожалуйста выбирите"
     submit:
@@ -87,7 +89,12 @@ ru:
       header: "Тест '%{title}'"
       passed: "успешно завершён"
       failed: "не пройден"
-      correct_answers_from: "правильных ответов %{correct} из %{total}"
+      correct_answers_from: "Правильных ответов %{correct} из %{total}"
+      page_title: "Результат прохождение Теста"
+    show:
+      page_title: "Прохождение Теста"
+    update:
+      page_title: "Прохождение Теста"
 
   test_mailer:
     completed_test:
@@ -99,6 +106,9 @@ ru:
       page_title: "Тесты"
     test:
       start: "Начать прохождение"
+  questions:
+    show:
+      title: "Вопрос"
 
   admin:
     tests:

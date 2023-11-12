@@ -60,6 +60,8 @@ en:
     created: "created"
     total: "Total"
     back: "Back"
+    from: "from"
+    next: "Next"
     select:
       prompt: "Please select"
     submit:
@@ -83,7 +85,12 @@ en:
       header: "Test '%{title}'"
       passed: "successfully passed"
       failed: "failed"
-      correct_answers_from: "correct answers %{correct} from %{total}"
+      correct_answers_from: "Correct answers %{correct} from %{total}"
+      page_title: "Test pass result"
+    show:
+      page_title: "Test passage"
+    update:
+      page_title: "Test passage"
 
   test_mailer:
     completed_test:
@@ -95,6 +102,9 @@ en:
       page_title: "Tests"
     test:
       start: "Start Test"
+  questions:
+    show:
+      title: "Вопрос"
 
   admin:
     tests:
