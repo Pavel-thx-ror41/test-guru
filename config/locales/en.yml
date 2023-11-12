@@ -89,6 +89,13 @@ en:
     completed_test:
       subject: 'You just completed the TestGuru test!'
 
+  tests:
+    test_not_found: "Test not found"
+    index:
+      page_title: "Tests"
+    test:
+      start: "Start Test"
+
   admin:
     tests:
       new:

@@ -93,6 +93,13 @@ ru:
     completed_test:
       subject: 'Вы успешно завершили Тест на TestGuru!'
 
+  tests:
+    test_not_found: "Тест не найден"
+    index:
+      page_title: "Тесты"
+    test:
+      start: "Начать прохождение"
+
   admin:
     tests:
       new:
