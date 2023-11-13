@@ -9,16 +9,46 @@ ru:
     sessions:
       user:
         signed_in: "Привет, #{current_user&.first_name}!"
+    passwords:
+      new:
+        page_title: "Пароль"
     confirmations:
+      new:
+        page_title: "Подтверждение"
       user:
         confirmed: "Адрес подтверждён"
     registrations:
+      characters_minimum: "символов, как минимум"
+      leave_blank_if: "оставьте пустым, что-бы не изменять"
+      new:
+        page_title: "Регистрация"
+      edit:
+        page_title: "Учётная запись"
+        cancel: "Удалить мою учётную запись"
       user:
         signed_up: "Пользователь зарегистрирован"
+    shared:
+      links:
+        log_in: "Войти"
+        sign_up: "Зарегистрироваться"
+        reset_password: "Сбросить пароль"
+        send_new_confirmation: "Подтвердить почту"
+        unlock: "Разблокировать учётную запись"
+        sign_with: "Войти при помощи"
+
   errors:
     messages:
       not_saved: "Не сохранён"
+
   activerecord:
+    attributes:
+      user:
+        first_name: "Имя"
+        last_name: "Фамилия"
+        email: "Электропочта"
+        password: "Пароль"
+        password_confirmation: "Подтверждение пароля"
+        current_password: "Текущий пароль"
     errors:
       models:
         user:
@@ -26,5 +56,23 @@ ru:
             email:
               already_confirmed: "Почтовый адрес уже был подтверждён ранее"
 
-
-
+  helpers:
+    submit:
+      user:
+        create: "Зарегистрироваться"
+        update: "Обновить"
+      password:
+        create: "Выслать инструкцию для сброса пароля"
+      session:
+        create: "Войти"
+      confirmation:
+        create: "Выслать инструкцию для подтверждения адреса"
+    label: # auto used: VIEW FORM
+      user:
+        first_name: "Имя"
+        last_name: "Фамилия"
+        email: "Электропочта"
+        password: "Пароль"
+        password_confirmation: "Подтверждение пароля"
+        current_password: "Текущий пароль"
+        remember_me: "запомнить на этом компьютере"

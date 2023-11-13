@@ -17,8 +17,7 @@ class Admin::TestsController < Admin::BaseController
     @test = current_user.authored_tests.build(test_params)
 
     if @test.save
-      flash[:notice] = 'Test created'
-      redirect_to admin_tests_path
+      redirect_to admin_tests_path, notice: t('.success')
     else
       flash.now[:alert] = { errors: entity_errors_list(@test) }
       render :new, status: :unprocessable_entity
@@ -27,8 +26,7 @@ class Admin::TestsController < Admin::BaseController
 
   def update
     if @test.update(test_params)
-      flash[:notice] = 'Test updated'
-      redirect_to admin_tests_path
+      redirect_to admin_tests_path, notice: t('.success')
     else
       flash.now[:alert] = { errors: entity_errors_list(@test) }
       render :edit, status: :unprocessable_entity
@@ -38,11 +36,11 @@ class Admin::TestsController < Admin::BaseController
   def destroy
     test = @test.destroy
 
-    flash[:notice] = if test.frozen? && !test.persisted?
-                       'Test was successfully destroyed.'
-                     else
-                       'Test was NOT destroyed.'
-                     end
+    if test.frozen? && !test.persisted?
+      flash[:notice] = t('.success')
+    else
+      flash[:alert] = t('.failure')
+    end
     redirect_to admin_tests_path
   end
 
@@ -55,7 +53,6 @@ class Admin::TestsController < Admin::BaseController
   def set_test
     @test = Test.find(params[:id])
   rescue ActiveRecord::RecordNotFound
-    flash[:notice] = 'Test not found'
-    redirect_to admin_tests_path
+    redirect_to admin_tests_path, alert: t('.test_not_found')
   end
 end

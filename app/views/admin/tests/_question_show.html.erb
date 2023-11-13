@@ -1,2 +1,5 @@
-<li><b><%= link_to question.title, admin_question_path(question.id, test_id: params[:test_id]) %></b></li>
-<i><small><%= question.info %></small></i><br>
+<li>
+  <%= link_to question.title, admin_question_path(question.id, test_id: params[:test_id]) %><br>
+  <i><small><%= question.info %></small></i><br>
+</li>
+<br>

@@ -6,16 +6,16 @@
   <td rowspan="3"><%= test.questions.count %></td>
   <td rowspan="3"><%= test.title %></td>
   <td rowspan="3"><%= test.info %></td>
-  <td><%= link_to 'Show', admin_test_path(test), class: :button %></td>
+  <td><%= link_to t('.show'), admin_test_path(test), class: :button %></td>
 </tr>
 <tr>
-  <td><%= link_to 'Edit', edit_admin_test_path(test), class: :button %></td>
+  <td><%= link_to t('.edit'), edit_admin_test_path(test), class: :button %></td>
 </tr>
 <tr>
   <td>
-    <%= button_to 'Destroy',
+    <%= button_to t('.delete'),
                   admin_test_path(test),
                   method: :delete,
-                  data: { confirm: 'Are you sure?' } %>
+                  data: { confirm: t('helpers.submit.confirm') } %>
   </td>
 </tr>

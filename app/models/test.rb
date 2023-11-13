@@ -9,7 +9,7 @@ class Test < ApplicationRecord
   validates :published, inclusion: { in: [false, true] }
   validates :level, numericality: { only_integer: true, greater_than_or_equal_to: 1, less_than_or_equal_to: 7 }
   validates :level, uniqueness: { scope: :title,
-                                  message: 'Может существовать только один Тест с данным названием и уровнем' }
+                                  message: I18n.t('activerecord.errors.messages.only_one_test_w_same_title_and_level') }
 
   scope :by_level, ->(level) { where(level: level) }
   scope :by_level_easy, -> { by_level(0..1) }

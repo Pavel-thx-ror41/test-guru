@@ -32,9 +32,10 @@
 <% if @test.id %>
   <hr>
   <div>
-    <strong>Questions:</strong> <%= link_to('+', new_admin_test_question_path(@test), class: :button)%><br>
+    <strong><%= t('admin.questions.index.page_title') %>:</strong>
     <ul>
-      <%= render(partial: 'admin/tests/question_edit', collection: @test.questions, as: :question) || 'No questions' %>
+      <%= render(partial: 'admin/tests/question_edit', collection: @test.questions, as: :question) || t('activerecord.models.questions', count: 0) %>
     </ul>
+    <%= link_to t('helpers.submit.question.create'), new_admin_test_question_path(@test), class: :button %><br>
   </div>
 <% end %>

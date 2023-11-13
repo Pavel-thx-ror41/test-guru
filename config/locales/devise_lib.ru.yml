@@ -1,0 +1,67 @@
+# Additional translations at https://github.com/heartcombo/devise/wiki/I18n
+
+ru:
+  devise:
+    confirmations:
+      confirmed: "Почтовый адрес подтверждён"
+      send_instructions: "Проверьте вашу почту, мы отправили письмо для подтверждения"
+      send_paranoid_instructions: "Проверьте вашу почту, мы отправили письмо для подтверждения, если вы ранее уже регистрировались"
+    failure:
+      already_authenticated: "Вы уже входили"
+      inactive: "Ваша учётная запись не активна"
+      invalid: "Не допустимый %{authentication_keys} или пароль"
+      locked: "Ваша учётная запись заблокирована"
+      last_attempt: "Последняя попытка, если не получится, то учётная запись будет заблокирована"
+      not_found_in_database: "Не допустимый %{authentication_keys} или пароль"
+      timeout: "Сеанс просрочен, войдите заново"
+      unauthenticated: "Нужно войти или зарегистрироваться"
+      unconfirmed: "Нужно подтвердить почтовый адрес, проверьте почту"
+    mailer:
+      confirmation_instructions:
+        subject: "Инструкция, как подтвердить почтовый адрес"
+      reset_password_instructions:
+        subject: "Инструкция, как сбросить пароль"
+      unlock_instructions:
+        subject: "Инструкция, как разблокировать учётную запись"
+      email_changed:
+        subject: "Адрес электропочты изменён"
+      password_change:
+        subject: "Пароль изменён"
+    omniauth_callbacks:
+      failure: "Вы не смогли войти через %{kind}, по причине: \"%{reason}\""
+      success: "Вы вошли через %{kind}"
+    passwords:
+      no_token: "Ссылка в письме не полная или токен просрочен, попробуйте повторно сбросить пароль"
+      send_instructions: "Отправили письмо на почту с инструкцие по сбросу пароля"
+      send_paranoid_instructions: "Отправили письмо на почту для сброса пароля, если вы ранее уже регистрировались"
+      updated: "Пароль изменён, вы вошли"
+      updated_not_active: "Пароль изменён"
+    registrations:
+      destroyed: "Ваша учётная запись удалена, будем рады вам снова"
+      signed_up: "Вы зарегистрированы"
+      signed_up_but_inactive: "Вы зарегистрированы, но не вошли, нужно активировать учётную запись"
+      signed_up_but_locked: "Вы зарегистрированы, но не вошли, ваша учётнаю запись заблокирована"
+      signed_up_but_unconfirmed: "Вы зарегистрированы, но не вошли, отправили письмо на почту для подтверждения адреса"
+      update_needs_confirmation: "Учётная запись обновлена, нужно подтвердить новый почтовый адрес, проверьте почту"
+      updated: "Учётная запись обновлена"
+      updated_but_not_signed_in: "Учётная запись обновлена, пароль изменён, нужно войти заново"
+    sessions:
+      signed_in: "Вы вошли"
+      signed_out: "Вы вышли"
+      already_signed_out: "Вы ранее уже вышли"
+    unlocks:
+      send_instructions: "Мы отправили на почту письмо для разблокировка учётной записи"
+      send_paranoid_instructions: "Мы отправили на почту письмо для разблокировка учётной записи, если вы ранее уже регистрировались"
+      unlocked: "Учётная запись разблокирована, выполните вход"
+  errors:
+    messages:
+      already_confirmed: "Уже есть подтверждение, можно выполнить вход"
+      confirmation_period_expired: "Нужно подтвердить в течении %{period}, запросите подтверждение повторно"
+      expired: "Просрочен, повторите попытку"
+      not_found: "Ресурс не найден"
+      not_locked: "Ошибка блокировки"
+      not_saved:
+        one: 'Одна ошибка препятствует обновлению %{resource}'
+        few: '%{count} ошибки препятствуют сохранению %{resource}'
+        many: '%{count} ошибок препятствуют сохранению %{resource}'
+        other: 'Несколько (%{count}) ошибок препятствуют сохранению %{resource}'

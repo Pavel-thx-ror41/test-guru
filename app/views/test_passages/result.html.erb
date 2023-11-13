@@ -1,6 +1,6 @@
 <div class='<%= test_passage_status %>'>
-  <h1>Test '<%= @test_passage.test.title %>' was <%= test_passage_status %></h1>
+  <h1><%= t('.header', title: @test_passage.test.title) %> <%= t('.'+test_passage_status) %></h1>
 
-  <%= @test_passage.correct_questions %> correct answers from <%= @test_passage.test.questions.count %>
+  <%= t('.correct_answers_from', correct: @test_passage.correct_questions, total: @test_passage.test.questions.count) %>
   (<%= @test_passage.correct_percentage %>%)
 </div>

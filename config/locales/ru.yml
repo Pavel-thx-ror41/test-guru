@@ -1,8 +1,147 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# The following keys must be escaped otherwise they will not be retrieved by
+# the default I18n backend:
+#
+# true, false, on, off, yes, no
+#
+# Instead, surround them with single quotes.
+#
+# en:
+#   'true': 'foo'
+#
+# To learn more, please read the Rails Internationalization guide
+# available at https://guides.rubyonrails.org/i18n.html.
+
 ru:
-    activerecord:
-        errors:
-            models:
-                test:
-                    attributes:
-                        category:
-                            required: "не может быть пустым"
+  activerecord:
+    models:
+      test: "Тест"
+      tests:
+        zero: 'нет Тестов'
+        one: '%{count} Тест'
+        few: '%{count} Теста'
+        many: '%{count} Тестов'
+        other: 'тесты'
+      questions:
+        zero: 'нет Вопросов'
+        one: '%{count} Вопрос'
+        few: '%{count} Вопроса'
+        many: '%{count} Вопросов'
+        other: 'Вопросы'
+    attributes:                     # error messages construct
+      test:                         # Test.model_name.human
+        user: "Автор"               # Test.human_attribute_name(:user)
+        category: "Раздел"
+        published: "Опубликован"
+        title: "Название"
+        level: "Уровень"
+        info: "Описание"
+    errors:
+      messages:
+        required: "необходимо выбрать"
+        blank: "не может быть пустым"
+        only_one_test_w_same_title_and_level: "Может существовать только один Тест с данным Названием и Уровнем"
+
+  helpers:
+    cancel: "Отмена"
+    created: "создан"
+    total: "Всего"
+    back: "Назад"
+    from: "из"
+    next: "Далее"
+    select:
+      prompt: "Пожалуйста выбирите"
+    submit:
+      confirm: "Уверены?"
+      test:
+        create: "Создать Тест"
+        update: "Обновить Тест"
+      question:
+        create: "Создать Вопрос"
+        delete: "Удалить Вопрос"
+    label: # auto used: VIEW FORM
+      test:
+        category_id: "Раздел"
+        published: "Опубликован"
+        level: "Уровень"
+        title: "Название"
+        info: "Описание"
+
+  test_passages:
+    result:
+      header: "Тест '%{title}'"
+      passed: "успешно завершён"
+      failed: "не пройден"
+      correct_answers_from: "Правильных ответов %{correct} из %{total}"
+      page_title: "Результат прохождение Теста"
+    show:
+      page_title: "Прохождение Теста"
+    update:
+      page_title: "Прохождение Теста"
+
+  test_mailer:
+    completed_test:
+      subject: 'Вы успешно завершили Тест на TestGuru!'
+
+  tests:
+    test_not_found: "Тест не найден"
+    index:
+      page_title: "Тесты"
+    test:
+      start: "Начать прохождение"
+  questions:
+    show:
+      title: "Вопрос"
+
+  admin:
+    tests:
+      new:
+        page_title: "Новый Тест"
+      create:
+        success: "Teст создан"
+        # created: "Teст создан"
+      # created: "Teст создан"
+      index:
+        page_title: "Тесты"
+      show:
+        page_title: "Тест"
+      edit:
+        page_title: "Тест"
+      update:
+        success: "Тест обновлён"
+      destroy:
+        success: "Тест удалён"
+        failure: "Ошибка удаения Теста"
+      test_not_found: "Тест не найден"
+      test:
+        show: "Показать"
+        edit: "Изменить"
+        delete: "Удалить"
+    questions:
+      index:
+        page_title: "Вопросы"
+#      new: "Новый Вопрос"
+#      show: "Вопрос"
+#      edit: "Вопрос"
+#    answers:
+#      new: "Новый Ответ"
+#      index: "Ответы"
+#      show: "Ответ"
+#      edit: "Ответ"

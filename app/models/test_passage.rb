@@ -24,6 +24,10 @@ class TestPassage < ApplicationRecord
     save!
   end
 
+  def title
+    test.title
+  end
+
   private
 
   def set_current_question

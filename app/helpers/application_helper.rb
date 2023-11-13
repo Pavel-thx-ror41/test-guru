@@ -24,23 +24,22 @@ module ApplicationHelper
   end
 
   def page_title
-    begin
-      title = instance_variable_get("@#{controller_name.singularize}")&.title.to_s
-    rescue StandardError
-      title = nil
-    end
-
     case action_name
-    when 'index'
-      controller_name.capitalize
+    when 'index', 'result'
+      t("#{controller_path.gsub('/', '.')}.#{action_name}.page_title")
     when 'new'
-      "#{action_name.capitalize} #{controller_name.singularize.capitalize}" unless controller_name.eql?('sessions')
-    when 'edit'
-      "#{action_name.capitalize} #{controller_name.singularize.capitalize}: '#{title}'" if title
-    when 'show'
-      "#{controller_name.singularize.capitalize}: '#{title}'" if title
-    else
-      title
+      t("#{controller_path.gsub('/', '.')}.#{action_name}.page_title") unless controller_name.eql?('sessions')
+    when 'edit', 'show', 'update'
+      t("#{controller_path.gsub('/', '.')}.#{action_name}.page_title") + entity_title
+    else # TODO: возможно не используется, проверить
+      entity_title
     end
+  end
+
+  def entity_title
+    title = instance_variable_get("@#{controller_name.singularize}")&.title.to_s
+    title.present? ? ": #{title}" : ""
+  rescue StandardError
+    nil
   end
 end

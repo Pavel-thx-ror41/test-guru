@@ -1,6 +1,6 @@
 <li>
-  <mark><%= link_to question.title, edit_admin_question_path(question.id, test_id: params[:test_id]) %></mark><br>
+  <%= link_to question.title, edit_admin_question_path(question.id, test_id: params[:test_id]) %><br>
   <i><small><%= question.info %></small></i><br>
-  <%= button_to 'X', admin_question_path(question.id), method: :delete, data: { confirm: 'Are you sure?' } %>
-  <br>
+  <%= button_to t('helpers.submit.question.delete'), admin_question_path(question.id), method: :delete, data: { confirm: t('helpers.submit.confirm') } %>
 </li>
+<br>

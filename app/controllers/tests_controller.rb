@@ -15,7 +15,6 @@ class TestsController < ApplicationController
   def set_test
     @test = Test.find(params[:id])
   rescue ActiveRecord::RecordNotFound
-    flash[:notice] = 'Test not found'
-    redirect_to tests_path
+    redirect_to tests_path, alert: t('.test_not_found')
   end
 end

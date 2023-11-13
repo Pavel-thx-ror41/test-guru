@@ -30,4 +30,114 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  activerecord:
+    models:
+      test: "Test"
+      tests:
+        zero: 'no Tests'
+        one: '%{count} Test'
+        other: '%{count} Tests'
+      questions:
+        zero: 'no Questions'
+        one: '%{count} Question'
+        other: '%{count} Questions'
+    attributes:
+      test:
+        user: "Author"
+        category: "Category"
+        published: "Published"
+        title: "Title"
+        level: "Level"
+        info: "Info"
+    errors:
+      messages:
+        required: "must exist"
+        blank: "can't be blank"
+        only_one_test_w_same_title_and_level: "Only one Test can exist with the same Title and Level"
+
+  helpers:
+    cancel: "Cancel"
+    created: "created"
+    total: "Total"
+    back: "Back"
+    from: "from"
+    next: "Next"
+    select:
+      prompt: "Please select"
+    submit:
+      confirm: "Are you sure?"
+      test:
+        create: "Create Test"
+        update: "Update Test"
+      question:
+        create: "Create Question"
+        delete: "Delete Question"
+    label:
+      test:
+        category_id: "Category"
+        published: "Published"
+        level: "Level"
+        title: "Title"
+        info: "Info"
+
+  test_passages:
+    result:
+      header: "Test '%{title}'"
+      passed: "successfully passed"
+      failed: "failed"
+      correct_answers_from: "Correct answers %{correct} from %{total}"
+      page_title: "Test pass result"
+    show:
+      page_title: "Test passage"
+    update:
+      page_title: "Test passage"
+
+  test_mailer:
+    completed_test:
+      subject: 'You just completed the TestGuru test!'
+
+  tests:
+    test_not_found: "Test not found"
+    index:
+      page_title: "Tests"
+    test:
+      start: "Start Test"
+  questions:
+    show:
+      title: "Вопрос"
+
+  admin:
+    tests:
+      new:
+        page_title: "New Test"
+      create:
+        success: "Test created"
+        # created
+      # created
+      index:
+        page_title: "Tests"
+      show:
+        page_title: "Test"
+      edit:
+        page_title: "Test"
+      update:
+        success: "Test updated"
+      destroy:
+        success: "Test deleted successfully"
+        failure: "Test deletion error"
+      test_not_found: "Test not found"
+      test:
+        show: "Show"
+        edit: "Edit"
+        delete: "Delete"
+    questions:
+      index:
+        page_title: "Questions"
+#      new: "New Question"
+#      show: "Question"
+#      edit: "Question"
+#    answers:
+#      new: "New Answer"
+#      index: "Answers"
+#      show: "Answer"
+#      edit: "Answer"
