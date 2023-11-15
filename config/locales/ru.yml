@@ -87,8 +87,8 @@ ru:
   test_passages:
     result:
       header: "Тест '%{title}'"
-      passed: "успешно завершён"
-      failed: "не пройден"
+      test_passed: "успешно завершён"
+      test_failed: "не пройден"
       correct_answers_from: "Правильных ответов %{correct} из %{total}"
       page_title: "Результат прохождение Теста"
     show:

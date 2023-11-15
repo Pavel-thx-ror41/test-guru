@@ -83,8 +83,8 @@ en:
   test_passages:
     result:
       header: "Test '%{title}'"
-      passed: "successfully passed"
-      failed: "failed"
+      test_passed: "successfully passed"
+      test_failed: "failed"
       correct_answers_from: "Correct answers %{correct} from %{total}"
       page_title: "Test pass result"
     show:
