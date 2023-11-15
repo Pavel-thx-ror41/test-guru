@@ -9,12 +9,12 @@ module ApplicationHelper
 
   def bootstrap_flash_class(level)
     # https://getbootstrap.com/docs/4.0/components/alerts/
-    case level.to_sym
-    when :notice then "alert alert-primary"
-    when :success then "alert alert-success"
-    when :error then "alert alert-danger"
-    when :alert then "alert alert-warning"
-    end
+    {
+      notice: "alert alert-info",
+      success: "alert alert-success",
+      error: "alert alert-danger",
+      alert: "alert alert-warning"
+    }[level.to_sym] || "alert alert-secondary"
   end
 
   def flash_html
