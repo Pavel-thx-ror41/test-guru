@@ -7,14 +7,24 @@ module ApplicationHelper
     link_to "исходник на GitHub: #{repo}", "https://github.com/#{author}/#{repo}", target: 'blank'
   end
 
+  def bootstrap_flash_class(level)
+    # https://getbootstrap.com/docs/4.0/components/alerts/
+    case level.to_sym
+    when :notice then "alert alert-primary"
+    when :success then "alert alert-success"
+    when :error then "alert alert-danger"
+    when :alert then "alert alert-warning"
+    end
+  end
+
   def flash_html
     flash.map do |name, value|
       if value.is_a?(Hash) && value[:errors].present?
-        "<div id='#{name}'><table><tr><td>#{value[:errors].join('</td></tr><tr><td>')}</td></tr></table></div>"
+        "<div class='#{bootstrap_flash_class(name)}'><table><tr><td>#{value[:errors].join('</td></tr><tr><td>')}</td></tr></table></div>"
       elsif value.include?('#{')
-        "<div id='#{name}'>#{interpolate(value)}</div>"
+        "<div class='#{bootstrap_flash_class(name)}'>#{interpolate(value)}</div>"
       else
-        "<div id='#{name}'>#{value}</div>"
+        "<div class='#{bootstrap_flash_class(name)}'>#{value}</div>"
       end
     end.join.html_safe
   end
