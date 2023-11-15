@@ -9,6 +9,8 @@ ru:
     sessions:
       user:
         signed_in: "Привет, #{current_user&.first_name}!"
+      new:
+        page_title: "Вход"
     passwords:
       new:
         page_title: "Пароль"
@@ -30,6 +32,7 @@ ru:
     shared:
       links:
         log_in: "Войти"
+        log_out: "Выйти"
         sign_up: "Зарегистрироваться"
         reset_password: "Сбросить пароль"
         send_new_confirmation: "Подтвердить почту"

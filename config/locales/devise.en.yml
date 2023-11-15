@@ -3,6 +3,8 @@ en:
     sessions:
       user:
         signed_in: "Hello, #{current_user&.first_name}!"
+      new:
+        page_title: "Enter"
     passwords:
       new:
         page_title: "Password"
@@ -21,6 +23,11 @@ en:
         cancel: "Cancel my account"
       user:
         signed_up: "Registered"
+    shared:
+      links:
+        log_in: "Login"
+        log_out: "Logout"
+        sign_up: "Sign Up"
 
   helpers:
     submit:

@@ -12,16 +12,13 @@
   </head>
 
   <body>
-    <header>
-      <%= render 'layouts/nav' %>
-    </header>
-    <main>
+    <%= render 'layouts/nav' %>
+
+    <div class="container">
       <%= render 'layouts/title' %>
       <%= render 'layouts/flashes' %>
       <%= yield %>
-    </main>
-    <footer>
       <%= render 'layouts/footer' %>
-    </footer>
+    </div>
   </body>
 </html>
