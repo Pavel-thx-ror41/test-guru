@@ -130,12 +130,15 @@ en:
         show: "Show"
         edit: "Edit"
         delete: "Delete"
+      unauthorized: "Not authorized"
+
     questions:
       index:
         page_title: "Questions"
 #      new: "New Question"
 #      show: "Question"
 #      edit: "Question"
+
 #    answers:
 #      new: "New Answer"
 #      index: "Answers"
