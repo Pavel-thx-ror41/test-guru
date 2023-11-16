@@ -1,3 +1,37 @@
+//https://learn.javascript.ru/css-units
+html {
+  font-size: 1em;
+}
+body, p, div, ol, ul, td, form, input, form p {
+  font-size: 1.25rem;
+}
+input.form-control {
+  font-size: 1.25rem;
+}
+
+//input[type='checkbox']:checked {
+//  background: #333;
+//}
+input[type="checkbox"] {
+  //-webkit-appearance: none;
+  //background:white;
+  //border:2px solid #555;
+  //border-radius: 5px;
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+form input[type="submit"] {
+  @extend .btn !optional;
+  @extend .btn-primary !optional;
+  font-size: 1.25rem;
+}
+
+// .same_line_right {
+//   float: right;
+// }
+
+
 //https://getbootstrap.com/docs/4.0/components/alerts/
 
 .test_failed {
