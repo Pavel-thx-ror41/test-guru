@@ -18,15 +18,25 @@ module ApplicationHelper
   end
 
   def flash_html
-    flash.map do |name, value|
-      if value.is_a?(Hash) && value[:errors].present?
-        "<div class='#{bootstrap_flash_class(name)}'><table><tr><td>#{value[:errors].join('</td></tr><tr><td>')}</td></tr></table></div>"
-      elsif value.include?('#{')
-        "<div class='#{bootstrap_flash_class(name)}'>#{interpolate(value)}</div>"
-      else
-        "<div class='#{bootstrap_flash_class(name)}'>#{value}</div>"
-      end
-    end.join.html_safe
+    if flash.count.positive?
+      flash.map do |name, value|
+        if value.is_a?(Hash) && value[:errors].present?
+          "<div class='#{bootstrap_flash_class(name)}'><table>
+            <tr><td>#{value[:errors].join('</td></tr><tr><td>')}</td></tr>
+          </table></div>"
+        elsif value.include?('#{')
+          "<div class='#{bootstrap_flash_class(name)}'>#{interpolate(value)}</div>"
+        else
+          "<div class='#{bootstrap_flash_class(name)}'>#{value}</div>"
+        end
+      end.join.html_safe
+
+    elsif resource&.errors.count.positive?
+      "<div class='#{bootstrap_flash_class('alert')}'><table>
+        <tr><td>#{resource.errors.full_messages.join('</td></tr><tr><td>')}</td></tr>
+      </table></div>".html_safe
+
+    end
   end
 
   def interpolate(value)
