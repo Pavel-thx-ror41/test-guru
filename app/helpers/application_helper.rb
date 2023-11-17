@@ -45,7 +45,7 @@ module ApplicationHelper
 
   def page_title
     case action_name
-    when 'index', 'result', 'new'
+    when 'index', 'result', 'new', 'create'
       t("#{controller_path.gsub('/', '.')}.#{action_name}.page_title")
     when 'edit', 'show', 'update'
       t("#{controller_path.gsub('/', '.')}.#{action_name}.page_title") + entity_title
