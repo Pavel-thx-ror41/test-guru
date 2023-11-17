@@ -4,7 +4,7 @@
 
     <ul class="navbar-nav">
       <% if user_signed_in? %>
-        <li class="nav-item"><div class="nav-link"><%= current_user.email %></div></li>
+        <li class="nav-item"><%= link_to current_user.email, edit_user_registration_path, class: "nav-link" %></li>
         <li class="nav-item">
           <% if current_user&.admin? %><%= link_to 'Admin panel', admin_tests_path, class: "nav-link" %><% end %>
         </li>
