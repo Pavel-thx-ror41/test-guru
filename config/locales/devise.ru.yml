@@ -19,6 +19,8 @@ ru:
     confirmations:
       new:
         page_title: "Подтверждение"
+      create:
+        page_title: "Подтверждение"
       user:
         confirmed: "Адрес подтверждён"
     registrations:

@@ -13,6 +13,8 @@ en:
     confirmations:
       new:
         page_title: "Confirmation"
+      create:
+        page_title: "Confirmation"
       user:
         confirmed: "Email confirmed"
     registrations:
