@@ -9,10 +9,10 @@ ru:
     failure:
       already_authenticated: "Вы уже входили"
       inactive: "Ваша учётная запись не активна"
-      invalid: "Не допустимый %{authentication_keys} или пароль"
+      invalid: "Не допустимый пароль или %{authentication_keys}"
       locked: "Ваша учётная запись заблокирована"
       last_attempt: "Последняя попытка, если не получится, то учётная запись будет заблокирована"
-      not_found_in_database: "Не допустимый %{authentication_keys} или пароль"
+      not_found_in_database: "Не допустимый пароль или %{authentication_keys}"
       timeout: "Сеанс просрочен, войдите заново"
       unauthenticated: "Нужно войти или зарегистрироваться"
       unconfirmed: "Нужно подтвердить почтовый адрес, проверьте почту"
