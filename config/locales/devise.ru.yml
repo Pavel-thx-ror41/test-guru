@@ -13,7 +13,9 @@ ru:
         page_title: "Вход"
     passwords:
       new:
-        page_title: "Пароль"
+        page_title: "Восстановить Пароль"
+      create:
+        page_title: "Восстановить Пароль"
     confirmations:
       new:
         page_title: "Подтверждение"

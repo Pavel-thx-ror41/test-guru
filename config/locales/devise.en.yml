@@ -7,7 +7,9 @@ en:
         page_title: "Enter"
     passwords:
       new:
-        page_title: "Password"
+        page_title: "Restore Password"
+      create:
+        page_title: "Restore Password"
     confirmations:
       new:
         page_title: "Confirmation"
