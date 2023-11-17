@@ -31,7 +31,7 @@ module ApplicationHelper
         end
       end.join.html_safe
 
-    elsif resource&.errors.count.positive?
+    elsif defined?(resource) && resource&.errors.count.positive?
       "<div class='#{bootstrap_flash_class('alert')}'><table>
         <tr><td>#{resource.errors.full_messages.join('</td></tr><tr><td>')}</td></tr>
       </table></div>".html_safe
