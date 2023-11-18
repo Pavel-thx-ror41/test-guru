@@ -25,6 +25,7 @@ en:
       edit:
         page_title: "Profile"
         cancel: "Cancel my account"
+        currently_waiting_confirmation_for: "Currently waiting confirmation for: "
       user:
         signed_up: "Registered"
     shared:
@@ -46,4 +47,10 @@ en:
         create: "Send email confirm instruction"
     label: # auto used: VIEW FORM
       user:
-        remember_me: "remember me"
+        first_name: "Firstname"
+        last_name: "Lastname"
+        email: "Email"
+        password: "Password"
+        password_confirmation: "Password confirmation"
+        current_password: "Current Password"
+        remember_me: "Remember me"

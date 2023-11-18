@@ -56,6 +56,7 @@ en:
         only_one_test_w_same_title_and_level: "Only one Test can exist with the same Title and Level"
 
   helpers:
+    enter: "Enter"
     cancel: "Cancel"
     created: "created"
     total: "Total"

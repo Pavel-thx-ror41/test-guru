@@ -60,6 +60,7 @@ ru:
         only_one_test_w_same_title_and_level: "Может существовать только один Тест с данным Названием и Уровнем"
 
   helpers:
+    enter: "Введите"
     cancel: "Отмена"
     created: "создан"
     total: "Всего"

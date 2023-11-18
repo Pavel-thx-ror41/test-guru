@@ -1,3 +1,5 @@
+
+// GLOBAL FONT
 //https://learn.javascript.ru/css-units
 html {
   font-size: 1em;
@@ -7,8 +9,11 @@ body, p, div, ol, ul, td, form, input, form p {
 }
 input.form-control {
   font-size: 1.25rem;
+  font-weight: bold;
 }
 
+
+// FORM ELEMENTS
 //input[type='checkbox']:checked {
 //  background: #333;
 //}
@@ -21,19 +26,39 @@ input[type="checkbox"] {
   height: 1.2rem;
 }
 
-form input[type="submit"] {
+
+// FORM ACTIONS
+.tg-actions {
+  @extend .actions !optional;
+  @extend .mt-5 !optional;
+}
+
+// GLOBAL BUTTONS
+.tg-btn {
   @extend .btn !optional;
-  @extend .btn-primary !optional;
+  @extend .m-2 !optional;
   font-size: 1.25rem;
 }
 
-// .same_line_right {
-//   float: right;
-// }
+// FORM BUTTONS
+form input[type="submit"] {
+  @extend .tg-btn;
+  @extend .btn-primary !optional;
+}
+
+form input[type="submit"].tg-btn-danger {
+  @extend .tg-btn;
+  @extend .btn-danger !optional;
+}
+
+a.tg-link-back {
+  @extend .tg-btn;
+  @extend .btn-outline-secondary !optional;
+}
 
 
+// ALERTS
 //https://getbootstrap.com/docs/4.0/components/alerts/
-
 .test_failed {
   @extend .alert !optional;
   @extend .alert-danger !optional;
@@ -42,4 +67,18 @@ form input[type="submit"] {
 .test_passed {
   @extend .alert !optional;
   @extend .alert-success !optional;
+}
+
+
+// NAVBAR LINKS
+.navbar .navbar-nav .nav-item  .nav-link {
+  @extend .tg-btn;
+  @extend .btn-outline-secondary !optional;
+  @extend .btn-sm !optional;
+}
+
+
+// HELPERS
+.same_line_right {
+  float: right;
 }
