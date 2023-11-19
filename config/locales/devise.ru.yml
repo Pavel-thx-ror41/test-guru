@@ -9,11 +9,17 @@ ru:
     sessions:
       user:
         signed_in: "Привет, #{current_user&.first_name}!"
+      new:
+        page_title: "Вход"
     passwords:
       new:
-        page_title: "Пароль"
+        page_title: "Восстановить Пароль"
+      create:
+        page_title: "Восстановить Пароль"
     confirmations:
       new:
+        page_title: "Подтверждение"
+      create:
         page_title: "Подтверждение"
       user:
         confirmed: "Адрес подтверждён"
@@ -25,11 +31,13 @@ ru:
       edit:
         page_title: "Учётная запись"
         cancel: "Удалить мою учётную запись"
+        currently_waiting_confirmation_for: "Ожидается подтверждение адреса: "
       user:
         signed_up: "Пользователь зарегистрирован"
     shared:
       links:
         log_in: "Войти"
+        log_out: "Выйти"
         sign_up: "Зарегистрироваться"
         reset_password: "Сбросить пароль"
         send_new_confirmation: "Подтвердить почту"

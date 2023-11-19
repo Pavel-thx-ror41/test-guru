@@ -56,6 +56,7 @@ en:
         only_one_test_w_same_title_and_level: "Only one Test can exist with the same Title and Level"
 
   helpers:
+    enter: "Enter"
     cancel: "Cancel"
     created: "created"
     total: "Total"
@@ -83,8 +84,8 @@ en:
   test_passages:
     result:
       header: "Test '%{title}'"
-      passed: "successfully passed"
-      failed: "failed"
+      test_passed: "successfully passed"
+      test_failed: "failed"
       correct_answers_from: "Correct answers %{correct} from %{total}"
       page_title: "Test pass result"
     show:
@@ -130,12 +131,15 @@ en:
         show: "Show"
         edit: "Edit"
         delete: "Delete"
+      unauthorized: "Not authorized"
+
     questions:
       index:
         page_title: "Questions"
 #      new: "New Question"
 #      show: "Question"
 #      edit: "Question"
+
 #    answers:
 #      new: "New Answer"
 #      index: "Answers"

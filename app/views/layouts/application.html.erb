@@ -2,7 +2,8 @@
 <html>
   <head>
     <title>TestGuru - <%= page_title %></title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -11,16 +12,13 @@
   </head>
 
   <body>
-    <header>
-      <%= render 'layouts/nav' %>
-    </header>
-    <main>
+    <%= render 'layouts/nav' %>
+
+    <div class="container-fluid p-5">
       <%= render 'layouts/title' %>
       <%= render 'layouts/flashes' %>
       <%= yield %>
-    </main>
-    <footer>
       <%= render 'layouts/footer' %>
-    </footer>
+    </div>
   </body>
 </html>

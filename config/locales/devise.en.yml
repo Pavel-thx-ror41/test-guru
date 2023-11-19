@@ -3,11 +3,17 @@ en:
     sessions:
       user:
         signed_in: "Hello, #{current_user&.first_name}!"
+      new:
+        page_title: "Enter"
     passwords:
       new:
-        page_title: "Password"
+        page_title: "Restore Password"
+      create:
+        page_title: "Restore Password"
     confirmations:
       new:
+        page_title: "Confirmation"
+      create:
         page_title: "Confirmation"
       user:
         confirmed: "Email confirmed"
@@ -19,8 +25,14 @@ en:
       edit:
         page_title: "Profile"
         cancel: "Cancel my account"
+        currently_waiting_confirmation_for: "Currently waiting confirmation for: "
       user:
         signed_up: "Registered"
+    shared:
+      links:
+        log_in: "Login"
+        log_out: "Logout"
+        sign_up: "Sign Up"
 
   helpers:
     submit:
@@ -35,4 +47,10 @@ en:
         create: "Send email confirm instruction"
     label: # auto used: VIEW FORM
       user:
-        remember_me: "remember me"
+        first_name: "Firstname"
+        last_name: "Lastname"
+        email: "Email"
+        password: "Password"
+        password_confirmation: "Password confirmation"
+        current_password: "Current Password"
+        remember_me: "Remember me"

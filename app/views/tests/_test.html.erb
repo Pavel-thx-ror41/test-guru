@@ -1,10 +1,23 @@
-<tr>
-  <td><%= test.author.email %></td>
-  <td><%= test.category.title %></td>
-  <td><%= test.published %></td>
-  <td><%= test.level %></td>
-  <td><%= test.questions.count %></td>
-  <td><%= test.title %></td>
-  <td><%= test.info %></td>
-  <td><%= button_to t('.start'), start_test_path(test) %></td>
-</tr>
+<div class="card border-primary p-0 m-3" style="min-width: 16em; border-radius: 1em; border-width: thick; border-left-style: solid;">
+
+  <div class="card-header p-3">
+    <b><%= test.title %></b>
+  </div>
+
+  <div class="card-body bg-light p-3">
+    <span class="card-subtitle">
+      <%= Test.human_attribute_name(:category) %>: <%= test.category.title %>,
+      <%= Test.human_attribute_name(:level) %>: <%= test.level %>,
+      <%= t('admin.questions.index.page_title') %>: <%= test.questions.count %>,
+      <%= Test.human_attribute_name(:published) %>: <%= test.published %>,
+      <%= Test.human_attribute_name(:user) %>: <%= test.author.email %>
+    </span>
+    <hr>
+    <div class="card-text"><small><i><%= test.info %></i></small></div>
+  </div>
+
+  <div class="card-footer">
+    <%= button_to t('.start'), start_test_path(test) %>
+  </div>
+
+</div>

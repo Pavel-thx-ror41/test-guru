@@ -1,21 +1,3 @@
-<table>
-  <thead>
-    <tr>
-      <th><%= Test.human_attribute_name(:user) %></th>
-      <th><%= Test.human_attribute_name(:category) %></th>
-      <th><%= Test.human_attribute_name(:published) %></th>
-      <th><%= Test.human_attribute_name(:level) %></th>
-      <th><%= t('admin.questions.index.page_title') %></th>
-      <th><%= Test.human_attribute_name(:title) %></th>
-      <th><%= Test.human_attribute_name(:info) %></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <%= render @tests %>
-    <tr>
-      <td colspan="8"><%= t('helpers.total') %>: <%= t('activerecord.models.tests', count: @tests.count) %></td>
-    </tr>
-  </tbody>
-</table>
+<div class="card-group">
+<%= render @tests %>
+</div>
