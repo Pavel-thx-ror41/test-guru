@@ -13,7 +13,7 @@ class GistQuestionService
 
   def gist_params
     {
-      description: @test.info,
+      description: @question.title,
       public: true,
       files: {
         "README.md": {

@@ -7,7 +7,11 @@ class TestPassagesController < ApplicationController
 
   def gist
     result = GistQuestionService.new(@test_passage.current_question).create
-    flash_options = result.success? ? { notice: t('.success') } : { alert: t('.failure') }
+    flash_options = if result.success?
+                      { notice: "#{t('.success')} #{gist_create_notice(result)}" }
+                    else
+                      { alert: t('.failure') }
+                    end
 
     redirect_to @test_passage, flash_options
   end
@@ -27,5 +31,11 @@ class TestPassagesController < ApplicationController
 
   def set_test_passage
     @test_passage = TestPassage.find(params[:id])
+  end
+
+  def gist_create_notice(result)
+    result_body = JSON.parse(result.body)
+    # ActionView::Helpers::UrlHelper.link_to
+    helpers.link_to(result_body["description"], result_body["html_url"])
   end
 end
