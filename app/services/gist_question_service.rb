@@ -26,7 +26,7 @@ class GistQuestionService
   def gist_content
     content = [@question.info]
     content << ''
-    content << 'answers:'
+    content << I18n.t('test_passages.gist.answers')
     content << @question.answers.pluck(:info)
 
     content.join("\n")

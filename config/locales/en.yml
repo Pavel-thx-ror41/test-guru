@@ -96,6 +96,7 @@ en:
       create: "Create Gist"
       success: "Gist was successfully created"
       failure: "Gist creation failure"
+      answers: "Answers:"
 
   test_mailer:
     completed_test:

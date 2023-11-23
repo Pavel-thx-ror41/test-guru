@@ -100,6 +100,7 @@ ru:
       create: "Создать Gist"
       success: "Gist успешно создан"
       failure: "Не получилось создать Gist"
+      answers: "Ответы:"
 
   test_mailer:
     completed_test:
