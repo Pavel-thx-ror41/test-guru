@@ -92,6 +92,10 @@ en:
       page_title: "Test passage"
     update:
       page_title: "Test passage"
+    gist:
+      create: "Create Gist"
+      success: "Gist was successfully created"
+      failure: "Gist creation failure"
 
   test_mailer:
     completed_test:
