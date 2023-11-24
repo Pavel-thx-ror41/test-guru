@@ -1,12 +1,15 @@
 class GistQuestionService
   def initialize(question, client: nil)
     @question = question
-    @test = @question.test
     @client = client || GitHubClient.new
   end
 
+  # @return [Array] Newly created gist description, url
+  # @return [String] If error Exception.message
   def create
-    @client.create_gist(gist_params)
+    result = @client.create_gist(gist_params)
+
+    result.is_a?(Sawyer::Resource) ? [result.description, result.html_url] : result.message
   end
 
   private

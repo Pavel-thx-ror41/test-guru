@@ -65,8 +65,8 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'i18n', '1.14.1'
 
-gem 'faraday', '~> 2.7.5'
 gem 'net-http'
+gem 'octokit', '~> 4.0'
 gem 'uri', '0.10.0'    # force the default version for ruby 2.7
 
 gem 'russian', '~> 0.6.0'
