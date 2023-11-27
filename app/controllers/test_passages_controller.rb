@@ -6,11 +6,19 @@ class TestPassagesController < ApplicationController
   def result; end
 
   def gist
-    result = GistQuestionService.new(@test_passage.current_question).create
-    flash_options = if result.is_a? Array
-                      { notice: "#{t('.success')}: #{helpers.link_to(*result)}" }
+    new_github_gist = GistQuestionService.new(@test_passage.current_question).create
+    if new_github_gist.is_a? Array
+      new_gist_local_log = Gist.create!({
+                                question: @test_passage.current_question,
+                                user: current_user,
+                                gist_url: new_github_gist[1]
+                              })
+    end
+
+    flash_options = if new_github_gist.is_a?(Array) && new_gist_local_log.persisted?
+                      { notice: "#{t('.success')}: #{helpers.link_to(*new_github_gist)}" }
                     else
-                      { alert: "#{t('.failure')}: #{result}" }
+                      { alert: "#{t('.failure')}: #{new_github_gist}" }
                     end
 
     redirect_to @test_passage, flash_options

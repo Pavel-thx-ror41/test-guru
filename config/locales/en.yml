@@ -113,6 +113,9 @@ en:
       title: "Вопрос"
 
   admin:
+    gists:
+      index:
+        page_title: "Gists"
     tests:
       new:
         page_title: "New Test"
