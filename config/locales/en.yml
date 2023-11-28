@@ -92,11 +92,6 @@ en:
       page_title: "Test passage"
     update:
       page_title: "Test passage"
-    gist:
-      create: "Create Gist"
-      success: "Gist was successfully created"
-      failure: "Gist creation failure"
-      answers: "Answers:"
 
   test_mailer:
     completed_test:
@@ -116,6 +111,10 @@ en:
     gists:
       index:
         page_title: "Gists"
+      create: "Create Gist"
+      success: "Gist was successfully created"
+      failure: "Gist creation failure"
+      answers: "Answers:"
     tests:
       new:
         page_title: "New Test"

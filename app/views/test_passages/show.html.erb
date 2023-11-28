@@ -18,4 +18,4 @@
   </p>
 <% end %>
 
-<%= button_to t('test_passages.gist.create'), gist_test_passage_path(@test_passage), method: :post %>
+<%= button_to t('admin.gists.create'), admin_gists_path(test_passage_id: @test_passage.id), method: :post %>

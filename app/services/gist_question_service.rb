@@ -29,7 +29,7 @@ class GistQuestionService
   def gist_content
     content = [@question.title]
     content << ''
-    content << "#{I18n.t('test_passages.gist.answers')}\n"
+    content << "#{I18n.t('admin.gists.answers')}\n"
     content << @question.answers.pluck(:title)
 
     content.join("\n")

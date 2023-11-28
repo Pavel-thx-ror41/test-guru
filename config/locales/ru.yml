@@ -96,11 +96,6 @@ ru:
       page_title: "Прохождение Теста"
     update:
       page_title: "Прохождение Теста"
-    gist:
-      create: "Создать Gist"
-      success: "Gist успешно создан"
-      failure: "Не получилось создать Gist"
-      answers: "Ответы:"
 
   test_mailer:
     completed_test:
@@ -120,6 +115,10 @@ ru:
     gists:
       index:
         page_title: "Gists"
+      create: "Создать Gist"
+      success: "Gist успешно создан"
+      failure: "Не получилось создать Gist"
+      answers: "Ответы:"
     tests:
       new:
         page_title: "Новый Тест"
