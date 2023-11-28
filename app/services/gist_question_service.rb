@@ -5,20 +5,14 @@ class GistQuestionService
   end
 
   # @return [Array] Newly created gist [description, url]
-  # @return [String] If error Exception.message
+  # @return nil If error
   def create
     result = @client.create_gist(gist_params)
 
-    return [result.description, result.html_url] if success?(result)
-
-    result
+    [result.description, result.html_url] if result && @client.success?
   end
 
   private
-
-  def success?(gist_create_result)
-    gist_create_result.is_a?(Sawyer::Resource)
-  end
 
   def gist_params
     {
