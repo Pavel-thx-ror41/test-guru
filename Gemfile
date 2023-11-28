@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.5'
 
+gem 'dotenv-rails', '~> 2.8.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.7', '>= 6.1.7.3'
 # Use sqlite3 as the database for Active Record
@@ -65,6 +66,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'i18n', '1.14.1'
 
 gem 'net-http'
+gem 'octokit', '~> 4.0'
 gem 'uri', '0.10.0'    # force the default version for ruby 2.7
 
 gem 'russian', '~> 0.6.0'
