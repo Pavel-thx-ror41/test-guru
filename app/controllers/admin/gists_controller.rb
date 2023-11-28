@@ -19,7 +19,7 @@ class Admin::GistsController < Admin::BaseController
                       { alert: "#{t('.failure')}: Gist created, but not logged locally" }
                     else
                       { alert: "#{t('.failure')}: #{new_github_gist_creation_result}" }
-    end
+                    end
 
     redirect_to @test_passage, flash_options
   end
@@ -31,7 +31,7 @@ class Admin::GistsController < Admin::BaseController
   end
 
   def gist_logged_locally?(new_gist_local_log)
-    new_gist_local_log.persisted?
+    new_gist_local_log&.persisted?
   end
 
   def set_test_passage
