@@ -9,10 +9,16 @@ class GistQuestionService
   def create
     result = @client.create_gist(gist_params)
 
-    result.is_a?(Sawyer::Resource) ? [result.description, result.html_url] : result
+    return [result.description, result.html_url] if success?(result)
+
+    result
   end
 
   private
+
+  def success?(gist_create_result)
+    gist_create_result.is_a?(Sawyer::Resource)
+  end
 
   def gist_params
     {
