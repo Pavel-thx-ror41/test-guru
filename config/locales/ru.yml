@@ -112,6 +112,13 @@ ru:
       title: "Вопрос"
 
   admin:
+    gists:
+      index:
+        page_title: "Gists"
+      create: "Создать Gist"
+      success: "Gist успешно создан"
+      failure: "Не получилось создать Gist"
+      answers: "Ответы:"
     tests:
       new:
         page_title: "Новый Тест"

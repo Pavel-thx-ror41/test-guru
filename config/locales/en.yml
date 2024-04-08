@@ -108,6 +108,13 @@ en:
       title: "Вопрос"
 
   admin:
+    gists:
+      index:
+        page_title: "Gists"
+      create: "Create Gist"
+      success: "Gist was successfully created"
+      failure: "Gist creation failure"
+      answers: "Answers:"
     tests:
       new:
         page_title: "New Test"
