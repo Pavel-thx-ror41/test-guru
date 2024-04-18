@@ -70,6 +70,7 @@ gem 'i18n', '1.14.1'
 
 gem 'net-http'
 gem 'octokit', '~> 4.0'
+gem 'octicons_helper', '~> 19.9.0'
 gem 'uri', '0.10.0'    # force the default version for ruby 2.7
 
 gem 'russian', '~> 0.6.0'

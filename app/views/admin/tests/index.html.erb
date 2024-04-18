@@ -1,4 +1,4 @@
-<table>
+<table class="table">
   <thead>
     <tr>
       <th><%= Test.human_attribute_name(:user) %></th>
@@ -6,7 +6,11 @@
       <th><%= Test.human_attribute_name(:published) %></th>
       <th><%= Test.human_attribute_name(:level) %></th>
       <th><%= t('admin.questions.index.page_title') %></th>
-      <th><%= Test.human_attribute_name(:title) %></th>
+      <th class="sort-by-title pointer">
+        <%= Test.human_attribute_name(:title) %>
+        <%= octicon 'arrow-up', class: 'text-succes hide' %>
+        <%= octicon 'arrow-down', class: 'text-succes hide' %>
+      </th>
       <th><%= Test.human_attribute_name(:info) %></th>
       <th></th>
     </tr>
