@@ -1,8 +1,6 @@
 const SORT_COLUMN_CLASS_MARKER = 'sort-by-text'
 
 document.addEventListener('turbolinks:load', function() {
-    alert(56)
-
     let sortedTh = document.querySelector('.'+SORT_COLUMN_CLASS_MARKER)
     if (sortedTh) {
         sortedTh.addEventListener('click', sortTableRowsByText)
