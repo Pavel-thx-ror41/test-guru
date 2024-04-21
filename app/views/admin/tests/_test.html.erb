@@ -1,21 +1,13 @@
 <tr>
-  <td rowspan="3"><%= test.author.email %></td>
-  <td rowspan="3"><%= test.category.title %></td>
-  <td rowspan="3"><%= test.published %></td>
-  <td rowspan="3"><%= test.level %></td>
-  <td rowspan="3"><%= test.questions.count %></td>
-  <td rowspan="3"><%= test.title %></td>
-  <td rowspan="3"><%= test.info %></td>
-  <td><%= link_to t('.show'), admin_test_path(test), class: :button %></td>
-</tr>
-<tr>
-  <td><%= link_to t('.edit'), edit_admin_test_path(test), class: :button %></td>
-</tr>
-<tr>
-  <td>
-    <%= button_to t('.delete'),
-                  admin_test_path(test),
-                  method: :delete,
-                  data: { confirm: t('helpers.submit.confirm') } %>
-  </td>
+  <td><%= test.author.email %></td>
+  <td><%= test.category.title %></td>
+  <td><%= test.published %></td>
+  <td><%= test.level %></td>
+  <td><%= test.questions.count %></td>
+  <td><%= test.title %></td>
+  <td><%= test.info %></td>
+  <td><%= link_to t('.show'), admin_test_path(test), class: :button %>
+      <%= link_to t('.edit'), edit_admin_test_path(test), class: :button %>
+      <%= button_to t('.delete'), admin_test_path(test), method: :delete,
+                    data: { confirm: t('helpers.submit.confirm') } %></td>
 </tr>

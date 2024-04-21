@@ -11,8 +11,8 @@ function sortRowsByTitle() {
     let rows = table.querySelectorAll('tr') // NodeList
 
     let sortedRows = []
-    for  (let i=1; i<rows.length-1; i=i+3) {
-        sortedRows.push([rows[i], rows[i+1], rows[i+2]])
+    for  (let i=1; i<rows.length-1; i++) {
+        sortedRows.push([rows[i]])
     }
 
     
@@ -38,8 +38,6 @@ function sortRowsByTitle() {
     sortedTable.appendChild(rows[0]) // Captions from unsortedTable
     for (let i = 0; i<sortedRows.length; i++) {
         sortedTable.appendChild(sortedRows[i][0]) // Row
-        sortedTable.appendChild(sortedRows[i][1]) // Edit button
-        sortedTable.appendChild(sortedRows[i][2]) // Delete button
     }
     sortedTable.appendChild(rows[rows.length-1]) // Totals from unsortedTable
 
