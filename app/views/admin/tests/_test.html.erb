@@ -4,7 +4,7 @@
   <td><%= test.published %></td>
   <td><%= test.level %></td>
   <td><%= test.questions.count %></td>
-  <td><%= test.title %></td>
+  <td class="sort-by-text"><%= test.title %></td>
   <td><%= test.info %></td>
   <td><%= link_to t('.show'), admin_test_path(test), class: :button %>
       <%= link_to t('.edit'), edit_admin_test_path(test), class: :button %>
