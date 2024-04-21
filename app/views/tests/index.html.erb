@@ -1,3 +1,18 @@
-<div class="card-group">
-<%= render @tests %>
-</div>
+<table class="card-group table">
+  <thead>
+    <tr>
+      <th class="sort-by-text pointer">
+        <%= Test.human_attribute_name(:title) %>
+        <%= octicon 'arrow-up', class: 'text-succes hide' %>
+        <%= octicon 'arrow-down', class: 'text-succes hide' %>
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%= render @tests %>
+    <tr>
+      <td><%= t('helpers.total') %>: <%= t('activerecord.models.tests', count: @tests.count) %></td>
+    </tr>
+  </tbody>
+</table>
