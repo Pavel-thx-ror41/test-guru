@@ -37,7 +37,7 @@
         %>
       </p>
 
-      <p>
+      <div>
         <%= f.label :password %>
         <% if @minimum_password_length %>
           <em>(<%= @minimum_password_length %> <%= t('devise.registrations.characters_minimum') %>)</em>
@@ -46,21 +46,27 @@
               :password,
               autocomplete: "new-password",
               class: "form-control",
-              placeholder: (t('helpers.enter') + " " + t('helpers.label.user.password'))
+              placeholder: (t('helpers.enter') + " " + t('helpers.label.user.password')),
+              aria_describedby: "user_passwordFeedback"
             )
         %>
-      </p>
+        <div id="user_passwordFeedback" class="invalid-feedback">
+          <%= t('helpers.label.user.passwords_must_be_same') %>
+        </div>
 
-      <p>
         <%= f.label :password_confirmation %>
         <%= f.password_field(
               :password_confirmation,
               autocomplete: "new-password",
               class: "form-control",
-              placeholder: (t('helpers.enter') + " " + t('helpers.label.user.password_confirmation'))
+              placeholder: (t('helpers.enter') + " " + t('helpers.label.user.password_confirmation')),
+              aria_describedby: "user_password_confirmationFeedback"
             )
         %>
-      </p>
+        <div id="user_password_confirmationFeedback" class="invalid-feedback">
+          <%= t('helpers.label.user.passwords_must_be_same') %>
+        </div>
+      </div>
 
       <div class="tg-actions">
         <%= link_to t("helpers.back"), :back, class: "tg-link-back" %>
